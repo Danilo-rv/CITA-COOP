@@ -134,6 +134,19 @@ Estratégia para georreferenciar **todas** as cooperativas do país, e não apen
 4. **Área de abrangência:** a partir dos vínculos cooperado–cooperativa no CAF (desde 08/2025), quando o MDA disponibilizar os dados.
 5. **Atualização:** carga mensal automática, acompanhando a publicação da Receita.
 
+### Status (carga de 2026-10 — nível 1 concluído)
+
+| Item | Resultado |
+|---|---|
+| Estabelecimentos de cooperativas (natureza 214-3) no CNPJ | 84.776 |
+| **Ativos** | **38.668** (15.646 matrizes) em 28 UFs e 4.455 municípios |
+| Geocodificados no nível 1 (centroide do município) | 99,99% (12 sem município casado) |
+| Goiás (ativos) | 1.609 |
+
+Arquivos: `dados/cooperativas_ativas_brasil.csv.gz` (sem telefone e e-mail). Scripts reproduzíveis em `scripts/etl/` (`cooperativas_cnpj.py`, `municipios_ibge.py`, `geocodificar_cooperativas.py`).
+
+**Limitações conhecidas:** o recorte atual é *todas as cooperativas* (não só da agricultura familiar — falta o CAF Jurídico/MDA; o CNAE ajuda a filtrar, mas não substitui); a posição é a do município, não do endereço; Boa Esperança do Norte (MT) e um Santa Teresinha (BA) ficaram sem coordenada.
+
 ---
 
 ## 5. Como tornar a plataforma indispensável para a gestão pública nacional

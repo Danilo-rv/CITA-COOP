@@ -18,7 +18,21 @@ ibge = {}
 for r in csv.DictReader(open(f"{D}/municipios_ibge.csv", encoding="utf-8"), delimiter=";"):
     ibge[(r["uf"], norm(r["municipio"]))] = r
 # apelidos de grafia que diferem entre Receita e IBGE (acrescentar conforme o relatorio de nao casados)
-APELIDOS = {}
+APELIDOS = {
+    ("RS", "SANTANA DO LIVRAMENTO"): "SANT ANA DO LIVRAMENTO",
+    ("PA", "SANTA ISABEL DO PARA"): "SANTA IZABEL DO PARA",
+    ("RN", "ASSU"): "ACU",
+    ("RJ", "PARATI"): "PARATY",
+    ("PA", "ELDORADO DOS CARAJAS"): "ELDORADO DO CARAJAS",
+    ("MT", "SANTO ANTONIO DO LEVERGER"): "SANTO ANTONIO DE LEVERGER",
+    ("MG", "BRASOPOLIS"): "BRAZOPOLIS",
+    ("SC", "BALNEARIO DE PICARRAS"): "BALNEARIO PICARRAS",
+    ("MG", "BARAO DO MONTE ALTO"): "BARAO DE MONTE ALTO",
+    ("TO", "COUTO DE MAGALHAES"): "COUTO MAGALHAES",
+    ("RN", "BOA SAUDE"): "JANUARIO CICCO",
+    ("MG", "AMPARO DA SERRA"): "AMPARO DO SERRA",
+    ("TO", "FORTALEZA DO TABOCAO"): "TABOCAO",
+}
 
 SIT = {"01": "NULA", "2": "ATIVA", "3": "SUSPENSA", "4": "INAPTA", "8": "BAIXADA"}
 ok, falha, linhas, feats = 0, {}, [], []
