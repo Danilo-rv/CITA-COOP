@@ -1,0 +1,25 @@
+// Catálogo de dados: fonte, linhagem e limitações de cada conjunto usado na plataforma.
+export const CATALOGO = [
+  { id: 'cnpj', nome: 'Cooperativas — Cadastro Nacional da Pessoa Jurídica', orgao: 'Receita Federal', situacao: 'carregada', atualizacao: 'Mensal', referencia: '10/2026',
+    acesso: 'Dados abertos (download)', cobertura: 'Brasil — 84.776 estabelecimentos de cooperativas; 38.668 ativos',
+    linhagem: 'Arquivos Empresas e Estabelecimentos → filtro natureza jurídica 214-3 → situação cadastral → geocodificação pelo município.',
+    limitacoes: 'Inclui todos os ramos, não só a agricultura familiar. Telefone e e-mail não são publicados na plataforma.', script: 'scripts/etl/cooperativas_cnpj.py' },
+  { id: 'malha', nome: 'Malha municipal e estadual 2022', orgao: 'IBGE', situacao: 'carregada', atualizacao: 'Anual', referencia: '2022',
+    acesso: 'Dados abertos (download)', cobertura: '5.572 municípios e 27 UFs',
+    linhagem: 'Shapefile oficial → ponto representativo de cada município → cruzamento com a tabela de municípios da Receita por UF e nome.',
+    limitacoes: 'A posição da cooperativa é a do município (nível 1). Municípios criados após 2022 ficam sem coordenada.', script: 'scripts/etl/municipios_ibge.py' },
+  { id: 'censo', nome: 'Censo Agropecuário 2017 — agricultura familiar', orgao: 'IBGE (SIDRA, tabela 6778)', situacao: 'carregada', atualizacao: 'Decenal', referencia: '2017',
+    acesso: 'API pública', cobertura: 'Estabelecimentos agropecuários totais e familiares por município',
+    linhagem: 'API SIDRA → variável 183 → tipologia total e agricultura familiar → junção pelo código IBGE.',
+    limitacoes: 'Dado de 2017; é o denominador oficial mais recente por município.', script: 'scripts/etl/gerar_dados_app.py' },
+  { id: 'cnae', nome: 'Classificação de atividades (CNAE)', orgao: 'Receita Federal / IBGE', situacao: 'carregada', atualizacao: 'Mensal', referencia: '10/2026',
+    acesso: 'Dados abertos (download)', cobertura: 'Descrição da atividade principal de cada cooperativa',
+    linhagem: 'Tabela Cnaes → agrupamento em 8 ramos por divisão/classe do CNAE.', limitacoes: 'O ramo é uma estimativa; o ramo oficial é o do registro na OCB.', script: 'scripts/etl/gerar_dados_app.py' },
+  { id: 'caf', nome: 'CAF Jurídico e vínculos de cooperados', orgao: 'MDA', situacao: 'pendente', atualizacao: '—', referencia: '—',
+    acesso: 'Consulta individual com captcha; exige acordo ou pedido via LAI', cobertura: '—', linhagem: '—', limitacoes: 'Necessário para o recorte da agricultura familiar e a área de abrangência.' },
+  { id: 'sicor', nome: 'Crédito rural e Pronaf (SICOR)', orgao: 'Banco Central', situacao: 'planejada', atualizacao: 'Mensal', referencia: '—', acesso: 'Dados abertos', cobertura: '—', linhagem: '—', limitacoes: 'Componente Crédito do ICPP.' },
+  { id: 'fnde', nome: 'Compras do PNAE na agricultura familiar', orgao: 'FNDE', situacao: 'planejada', atualizacao: 'Anual', referencia: '—', acesso: 'Dados abertos', cobertura: '—', linhagem: '—', limitacoes: 'Componente PNAE do ICPP.' },
+  { id: 'ater', nome: 'Escritórios e atendimentos de ATER', orgao: 'ANATER, Emater estaduais, ASBRAER', situacao: 'pendente', atualizacao: '—', referencia: '—', acesso: 'Depende de acordo', cobertura: '—', linhagem: '—', limitacoes: 'Não existe cadastro nacional georreferenciado.' },
+  { id: 'satelite', nome: 'Clima, vegetação e solo por satélite', orgao: 'CHIRPS, Sentinel-2, SMAP, MapBiomas (Earth Engine)', situacao: 'planejada', atualizacao: 'Diária a anual', referencia: '—', acesso: 'Gratuito para pesquisa', cobertura: '—', linhagem: '—', limitacoes: 'Alimenta a Sala de Situação.' },
+]
+export const SITUACAO = { carregada: { rotulo: 'Carregada', nivel: 'bom' }, planejada: { rotulo: 'Planejada', nivel: 'atencao' }, pendente: { rotulo: 'Depende de acordo', nivel: 'serio' } }
