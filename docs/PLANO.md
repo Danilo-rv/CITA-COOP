@@ -166,18 +166,64 @@ Arquivos: `dados/cooperativas_ativas_brasil.csv.gz` (sem telefone e e-mail). Scr
 
 ---
 
-## 6. Ordem de construção
+## 6. Dinamismo e robustez analítica
+
+### 6.1 Plataforma dinâmica
+- **Carga automática com data visível:** cada fonte atualiza no seu ritmo e toda tela mostra a data dos dados.
+- **Filtros cruzados:** mapa, gráficos e ranking respondem juntos a filtros de cadeia, porte e período.
+- **Linha do tempo:** controle deslizante para ver a evolução de qualquer indicador.
+- **Alertas por assinatura:** o usuário escolhe território e tema e é avisado por e-mail ou WhatsApp.
+- **Painéis montáveis:** cada usuário monta, salva e compartilha seu painel.
+- **Perguntas em linguagem natural:** a IA consulta a base e devolve mapa e tabela.
+- **Dados vindos do campo:** cooperativas e técnicos corrigem endereço, produção e demandas, com reflexo imediato no mapa.
+
+### 6.2 Análises de gestão territorial
+- **Tipologia de territórios:** agrupamento de municípios por perfil, para comparar cada um com seus semelhantes.
+- **Estatística espacial:** aglomerados de alta e baixa cobertura (Moran, hot spots).
+- **Acessibilidade real:** tempo de viagem por estrada até ATER, armazém da Conab, escolas do PNAE e banco.
+- **Vazios de atendimento:** áreas com muitos estabelecimentos familiares e nenhuma cooperativa ou ATER ao alcance.
+- **Recortes múltiplos:** município, Território da Cidadania, região imediata, bacia, bioma, semiárido, Amazônia Legal.
+- **Demografia das cooperativas:** taxa de sobrevivência por região e ramo, a partir das datas de abertura e de situação do CNPJ.
+- **Risco composto:** exposição climática × capacidade de reação (IMGC, crédito, ATER).
+
+### 6.3 Governança de dados
+- **Catálogo e linhagem:** ficha de cada indicador com fonte, fórmula, data, responsável e limitações.
+- **Selo de qualidade:** completude, atualidade e precisão geográfica por camada (`precisao_geo` já é gravada).
+- **Versionamento:** cargas mensais preservadas, para reproduzir relatórios de datas passadas.
+- **Classificação de acesso:** público, agregado, restrito e pessoal, aplicados no banco por perfil, com registro de consultas.
+- **Anonimização:** não publicar agregados com menos de N cooperativas.
+- **Papéis formais:** encarregado de dados (LGPD), curadores por fonte e comitê gestor para mudanças de metodologia.
+- **Padrões abertos:** metadados no padrão da INDE, API documentada, publicação no dados.gov.br.
+
+### 6.4 Administração pública
+- **Simulador de cenários:** efeito e custo por família de uma intervenção em um conjunto de municípios.
+- **Monitoramento de execução:** meta × realizado por programa e território, vinculado ao PPA e aos ODS.
+- **Avaliação de impacto embutida:** territórios atendidos × semelhantes não atendidos.
+- **Custo-efetividade:** valor investido × resultado, por política e município.
+- **Relatórios automáticos:** nota técnica do município ou estado em PDF.
+- **Painel de transparência:** versão pública para conselhos e controle social.
+- **Fila de prioridades:** lista ordenada de onde agir primeiro, com justificativa.
+
+### 6.5 Prioridade
+1. Catálogo de dados com linhagem e selo de qualidade (nasce junto com o banco).
+2. Tipologia de territórios e estatística espacial.
+3. Demografia das cooperativas (já possível com a carga do CNPJ).
+4. Simulador de cenários, depois do ICPP calculado.
+
+---
+
+## 7. Ordem de construção
 
 | Fase | Entregas |
 |---|---|
-| 1 | Base territorial nacional (cooperativas pelo CNPJ, municípios IBGE), Geoportal e Administração de fontes |
+| 1 | Base territorial nacional (cooperativas pelo CNPJ, municípios IBGE), Geoportal, Administração de fontes, catálogo de dados e demografia das cooperativas |
 | 2 | Gestão Cooperativa (IMGC, conformidade, contábil) no piloto em Goiás com a cooperativa que já usa o software de gestão |
-| 3 | ICPP nacional e mapa de lacunas |
+| 3 | ICPP nacional, mapa de lacunas, tipologia de territórios, estatística espacial e simulador de cenários |
 | 4 | Sala de Situação com dados de satélite |
 | 5 | Demandas, ATER Virtual e Mercados (incluindo o fluxo PNAE 30%) |
 | 6 | Formação, Observatório e Resultados |
 
-## 7. Questões em aberto
+## 8. Questões em aberto
 
 - Qual instituição sedia o Centro e responde juridicamente pelos dados?
 - Quais Emater aceitam compartilhar dados de atendimento?
