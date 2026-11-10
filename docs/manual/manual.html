@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Manual de Utilização — CITA-COOP</title>
+<link rel="stylesheet" href="../../app/node_modules/@fontsource-variable/inter/index.css">
+<link rel="stylesheet" href="../../app/node_modules/@fontsource-variable/space-grotesk/index.css">
+<link rel="stylesheet" href="../estilo-doc.css">
+</head>
+<body>
+
+<section class="capa">
+  <div class="marca"><i>◎</i> CITA-COOP</div>
+  <div>
+    <div class="tipo">Manual de utilização · versão 0.4</div>
+    <div class="titulo">Como usar a plataforma CITA-COOP</div>
+    <div class="sub">Guia passo a passo, com imagens, para gestores públicos, dirigentes de cooperativas, técnicos de ATER, pesquisadores e estudantes.</div>
+  </div>
+  <div class="pe"><span>Centro de Inteligência Territorial Analítica em Cooperativas</span><span>Novembro de 2026 · protótipo TRL 4</span></div>
+</section>
+
+<h1>Sumário</h1>
+<ol class="sumario">
+  <li><b>1</b> O que é o CITA-COOP</li>
+  <li><b>2</b> Antes de começar</li>
+  <li><b>3</b> Conhecendo a tela</li>
+  <li><b>4</b> Acessibilidade e VLibras</li>
+  <li><b>5</b> Início</li>
+  <li><b>6</b> Geoportal</li>
+  <li><b>7</b> Sala de Situação</li>
+  <li><b>8</b> Políticas Públicas</li>
+  <li><b>9</b> Demandas</li>
+  <li><b>10</b> ATER Virtual</li>
+  <li><b>11</b> Mercados</li>
+  <li><b>12</b> Gestão Cooperativa</li>
+  <li><b>13</b> Formação</li>
+  <li><b>14</b> Observatório</li>
+  <li><b>15</b> Resultados</li>
+  <li><b>16</b> Administração</li>
+  <li><b>17</b> O que fazer em cada perfil</li>
+  <li><b>18</b> Perguntas frequentes</li>
+  <li><b>19</b> Glossário</li>
+  <li><b>20</b> Limites desta versão</li>
+</ol>
+
+<div class="dica"><b>Como ler este manual</b>
+Cada capítulo de módulo tem a mesma ordem: <b>para que serve</b>, <b>passo a passo</b>, uma <b>imagem da tela</b> com números em rosa e, no fim, <b>aplicações práticas</b>. Os números em rosa <span class="n">1</span> nas imagens correspondem aos números da legenda logo abaixo.</div>
+
+<!-- ============================================================ -->
+<h1>1. O que é o CITA-COOP</h1>
+<p class="lead">O CITA-COOP é uma plataforma na internet que reúne, em um só lugar, informações sobre as cooperativas do Brasil, a agricultura familiar e as políticas públicas. O objetivo é ajudar a decidir <b>onde atuar</b>, <b>o que atender primeiro</b> e <b>onde a política pública ainda não chega</b>.</p>
+<p>A plataforma combina três funções:</p>
+<table>
+  <tr><th style="width:32%">Função</th><th>O que oferece</th><th style="width:30%">Módulos</th></tr>
+  <tr><td><b>Observatório</b></td><td>Mapa e indicadores das cooperativas por município e estado.</td><td>Geoportal, Políticas Públicas, Observatório</td></tr>
+  <tr><td><b>Sala de situação</b></td><td>Acompanhamento de clima, vegetação e solo, com alertas.</td><td>Sala de Situação</td></tr>
+  <tr><td><b>Serviço</b></td><td>Ferramentas para o dia a dia das cooperativas e de quem as apoia.</td><td>Demandas, ATER Virtual, Mercados, Gestão, Formação</td></tr>
+</table>
+<h2>Para quem é</h2>
+<ul>
+  <li><b>Gestores públicos:</b> enxergam onde há agricultura familiar sem cooperativa e priorizam ações.</li>
+  <li><b>Dirigentes de cooperativas:</b> organizam documentos, avaliam a gestão e encontram mercados.</li>
+  <li><b>Técnicos de ATER:</b> recebem as dúvidas que precisam de atendimento humano.</li>
+  <li><b>Pesquisadores e estudantes:</b> consultam análises e baixam os dados.</li>
+  <li><b>Qualquer pessoa:</b> o mapa e os dados abertos não exigem cadastro.</li>
+</ul>
+<h2>O que a plataforma já tem</h2>
+<ul>
+  <li><b>38.658 cooperativas ativas</b> de todo o Brasil, localizadas por município (fonte: Receita Federal, carga de outubro de 2026).</li>
+  <li><b>5.572 municípios</b> com o número de estabelecimentos da agricultura familiar (fonte: IBGE, Censo Agropecuário 2017).</li>
+  <li>Ferramentas de gestão, demandas e orientação que funcionam no próprio navegador.</li>
+</ul>
+
+<!-- ============================================================ -->
+<h1>2. Antes de começar</h1>
+<h2>Como acessar</h2>
+<ol class="passos">
+  <li>Abra o navegador de internet (Chrome, Edge, Firefox ou Safari) no computador ou no celular.</li>
+  <li>Digite o endereço da plataforma informado pela equipe do Centro.</li>
+  <li>Pronto: não é preciso instalar nada nem criar senha nesta versão.</li>
+</ol>
+<h2>As três etiquetas de origem</h2>
+<p>Para que ninguém confunda dado oficial com exemplo, cada bloco da plataforma traz uma etiqueta:</p>
+<table>
+  <tr><th style="width:26%">Etiqueta</th><th>O que quer dizer</th></tr>
+  <tr><td><span class="etq real">● Dados reais</span></td><td>Informação de fonte oficial, já carregada: Receita Federal e IBGE. Pode ser usada em análises e relatórios, citando a fonte.</td></tr>
+  <tr><td><span class="etq demo">Registro local</span></td><td>Informação que você mesmo digitou (uma demanda, um diagnóstico, uma data de documento). Fica guardada apenas no navegador que você está usando.</td></tr>
+  <tr><td><span class="etq demo">Demonstração</span></td><td>Exemplo ilustrativo. Aparece onde a fonte oficial ainda depende de convênio, como os dados de clima por satélite.</td></tr>
+</table>
+<div class="atencao"><b>Importante sobre o “Registro local”</b>
+Nesta versão, o que você registra não é enviado a um servidor. Se você trocar de computador, de navegador ou limpar os dados de navegação, esses registros não aparecerão. A gravação em banco de dados central é a próxima etapa do projeto.</div>
+<h2>Perfis de uso</h2>
+<p>No alto da tela existe o seletor <b>Perfil</b>. Ao escolher um perfil, o menu passa a mostrar apenas os módulos úteis para ele. Nesta versão a troca é livre, para demonstração; o acesso com login virá na próxima etapa.</p>
+<table>
+  <tr><th style="width:30%">Perfil</th><th>Módulos que aparecem no menu</th></tr>
+  <tr><td>Visitante (público)</td><td>Início, Geoportal, Políticas Públicas, Observatório, Ajuda</td></tr>
+  <tr><td>Gestor público</td><td>Os do visitante + Sala de Situação, Demandas, Mercados, Resultados</td></tr>
+  <tr><td>Dirigente de cooperativa</td><td>Início, Geoportal, Sala de Situação, Demandas, ATER Virtual, Mercados, Gestão Cooperativa, Formação, Observatório, Ajuda</td></tr>
+  <tr><td>Técnico de ATER</td><td>Início, Geoportal, Sala de Situação, Demandas, ATER Virtual, Formação, Observatório, Ajuda</td></tr>
+  <tr><td>Analista do Núcleo (PPGADM)</td><td>Início, Geoportal, Políticas Públicas, Gestão Cooperativa, Formação, Observatório, Resultados, Ajuda</td></tr>
+  <tr><td>Pesquisador</td><td>Início, Geoportal, Políticas Públicas, Observatório, Resultados, Ajuda</td></tr>
+  <tr><td>Equipe do Centro</td><td>Todos os módulos, incluindo Administração</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h1>3. Conhecendo a tela</h1>
+<p class="lead">Todas as telas têm a mesma organização. Aprendendo uma, você sabe usar todas.</p>
+<figure class="fig"><img src="img/01-inicio.jpg" alt="Tela inicial da plataforma com as áreas numeradas">
+  <figcaption>Figura 1 — Tela inicial e as cinco áreas presentes em toda a plataforma.</figcaption>
+  <ul class="leg">
+    <li><b class="n">1</b> <span><b>Menu:</b> os módulos, em três grupos (Território, Serviços, Conhecimento).</span></li>
+    <li><b class="n">2</b> <span><b>Perfil:</b> escolha como você usa a plataforma.</span></li>
+    <li><b class="n">3</b> <span><b>Acessibilidade:</b> tamanho do texto, alto contraste, tema escuro e ajuda.</span></li>
+    <li><b class="n">4</b> <span><b>Conteúdo:</b> a área de trabalho do módulo aberto.</span></li>
+    <li><b class="n">5</b> <span><b>VLibras:</b> botão azul que traduz o texto para Libras.</span></li>
+  </ul>
+</figure>
+<div class="junto">
+<h2>No celular</h2>
+<p>A plataforma se ajusta à tela pequena. O menu fica recolhido: toque no botão <b>☰</b>, no canto superior esquerdo, para abri-lo.</p>
+<figure class="fig celular"><img src="img/25-celular-inicio.jpg" alt="Tela inicial no celular"><img src="img/26-celular-menu.jpg" alt="Menu aberto no celular"></figure>
+<p style="text-align:center;font-size:8.8pt;color:#55657e">Figura 2 — Tela inicial no celular e o menu aberto.</p>
+
+</div>
+
+<!-- ============================================================ -->
+<h1>4. Acessibilidade e VLibras</h1>
+<p class="lead">A plataforma foi feita para ser usada por todas as pessoas. Os recursos ficam sempre no alto da tela e no botão azul do VLibras.</p>
+<figure class="fig"><img src="img/22-vlibras.jpg" alt="Tela de ajuda com o VLibras aberto">
+  <figcaption>Figura 3 — VLibras aberto: o intérprete virtual sinaliza em Libras o texto selecionado.</figcaption>
+  <ul class="leg">
+    <li><b class="n">1</b> <span>Botões de acessibilidade: <b>A−</b>, <b>A+</b>, contraste, tema e ajuda.</span></li>
+    <li><b class="n">2</b> <span>Lista de recursos, na tela <b>Ajuda e acessibilidade</b>.</span></li>
+  </ul>
+</figure>
+<h2>Usar o VLibras (tradução para Libras)</h2>
+<ol class="passos">
+  <li>Clique no <b>botão azul com as mãos</b>, na lateral direita da tela.</li>
+  <li>Aguarde o intérprete virtual carregar (é preciso estar conectado à internet).</li>
+  <li>Clique em qualquer texto da plataforma: o intérprete faz a tradução para a Língua Brasileira de Sinais.</li>
+  <li>Use os botões da janela para pausar, mudar a velocidade ou trocar o avatar. Para fechar, clique no <b>X</b>.</li>
+</ol>
+<div class="dica"><b>O que é o VLibras</b>O VLibras é a ferramenta oficial e gratuita do governo federal (gov.br) para tradução automática do português para Libras. A plataforma usa o componente oficial, carregado diretamente de <code>vlibras.gov.br</code>.</div>
+<h2>Outros recursos</h2>
+<table>
+  <tr><th style="width:28%">Recurso</th><th>Como usar</th></tr>
+  <tr><td><b>Texto maior ou menor</b></td><td>Clique em <b>A+</b> para aumentar (dois níveis) e em <b>A−</b> para voltar.</td></tr>
+  <tr><td><b>Alto contraste</b></td><td>Clique no botão do círculo dividido. A tela passa a fundo preto, texto branco e destaques em amarelo.</td></tr>
+  <tr><td><b>Tema escuro</b></td><td>Clique no botão da lua. Clique no sol para voltar ao tema claro.</td></tr>
+  <tr><td><b>Uso só com o teclado</b></td><td>Use <b>Tab</b> para avançar, <b>Shift+Tab</b> para voltar e <b>Enter</b> para acionar. O primeiro <b>Tab</b> mostra o atalho “Pular para o conteúdo”. <b>Esc</b> fecha janelas.</td></tr>
+  <tr><td><b>Leitor de tela</b></td><td>As telas têm títulos, rótulos e descrições. Gráficos e mapa vêm acompanhados de tabelas ou listas com os mesmos dados.</td></tr>
+</table>
+<figure class="fig"><img src="img/23-alto-contraste.jpg" alt="Geoportal em alto contraste"><figcaption>Figura 4 — Geoportal no modo de alto contraste.</figcaption></figure>
+<p>As preferências de tamanho de texto, contraste e tema ficam guardadas: na próxima visita, a plataforma abre do jeito que você deixou.</p>
+
+<!-- ============================================================ -->
+<h1>5. Início</h1>
+<h2>Para que serve</h2>
+<p>É a porta de entrada. Mostra os números principais da base e dá acesso a todos os módulos do seu perfil.</p>
+<h2>O que você encontra</h2>
+<ul>
+  <li><b>Quatro indicadores:</b> cooperativas ativas, municípios com cooperativa, estabelecimentos da agricultura familiar e percentual de registros localizados no mapa.</li>
+  <li><b>Cooperativas por ramo:</b> gráfico de barras com os oito ramos.</li>
+  <li><b>Origem das informações:</b> explicação das três etiquetas.</li>
+  <li><b>Módulos:</b> um cartão para cada módulo, com uma frase que explica para que serve. Clique no cartão para abrir.</li>
+</ul>
+<div class="uso"><b>Aplicações práticas</b><ul>
+  <li>Apresentar o projeto em reuniões: os números da primeira tela resumem a cobertura da base.</li>
+  <li>Orientar quem está começando: os cartões funcionam como um índice da plataforma.</li>
+</ul></div>
+
+<!-- ============================================================ -->
+<h1>6. Geoportal</h1>
+<h2>Para que serve</h2>
+<p>É o mapa nacional das cooperativas. Responde a perguntas como: <i>quantas cooperativas existem no meu município?</i>, <i>quais são?</i>, <i>onde há agricultura familiar sem cooperativa por perto?</i></p>
+<figure class="fig"><img src="img/02-geoportal.jpg" alt="Geoportal com o mapa do Brasil">
+  <figcaption>Figura 5 — Geoportal: visão do Brasil inteiro.</figcaption>
+  <ul class="leg">
+    <li><b class="n">1</b> <span><b>Filtros:</b> camada, estado e ramo.</span></li>
+    <li><b class="n">2</b> <span><b>Mapa:</b> cada círculo é um município.</span></li>
+    <li><b class="n">3</b> <span><b>Painel:</b> totais e lista dos municípios.</span></li>
+    <li><b class="n">4</b> <span><b>Busca:</b> por nome ou CNPJ.</span></li>
+    <li><b class="n">5</b> <span><b>Legenda:</b> tamanho dos círculos.</span></li>
+  </ul>
+</figure>
+<h2>Passo a passo: ver as cooperativas de um município</h2>
+<ol class="passos">
+  <li>No menu, clique em <b>Geoportal</b>.</li>
+  <li>Em <b>Estado</b>, escolha a sigla (por exemplo, GO). O mapa aproxima e o painel passa a mostrar os totais do estado.</li>
+  <li>Se quiser, escolha um <b>Ramo</b> (Agropecuário, Crédito, Saúde…).</li>
+  <li>Clique em um <b>círculo</b> do mapa ou em um <b>município da lista</b>, no painel.</li>
+  <li>O painel mostra os números do município e a lista das cooperativas. Clique em uma delas para abrir a <b>ficha</b>.</li>
+</ol>
+<figure class="fig"><img src="img/03-geoportal-municipio.jpg" alt="Geoportal com um município selecionado">
+  <figcaption>Figura 6 — Estado de Goiás filtrado e o município de Rio Verde selecionado.</figcaption>
+  <ul class="leg">
+    <li><b class="n">1</b> <span>Filtro de estado.</span></li>
+    <li><b class="n">2</b> <span>Município escolhido e seus números.</span></li>
+    <li><b class="n">3</b> <span>Cooperativas com sede no município.</span></li>
+  </ul>
+</figure>
+<h2>A ficha da cooperativa</h2>
+<figure class="fig"><img src="img/04-ficha.jpg" alt="Ficha de uma cooperativa">
+  <figcaption>Figura 7 — Ficha com os dados públicos do CNPJ. <span class="n">1</span> CNPJ, tipo, início da atividade, atividade principal (CNAE), endereço e município.</figcaption>
+</figure>
+<p>Para fechar a ficha, clique no <b>X</b>, clique fora da janela ou aperte <b>Esc</b>.</p>
+<h2>Passo a passo: buscar uma cooperativa pelo nome</h2>
+<ol class="passos">
+  <li>Clique na caixa <b>Buscar por nome ou CNPJ</b>.</li>
+  <li>Digite pelo menos três letras do nome, ou os números do CNPJ.</li>
+  <li>Escolha a cooperativa na lista que aparece. O mapa vai até o município e a ficha se abre.</li>
+</ol>
+<h2>Camada “Vazios de atendimento”</h2>
+<p>Mostra os municípios que têm muitos estabelecimentos da agricultura familiar e <b>nenhuma cooperativa agropecuária ativa</b> com sede no local.</p>
+<ol class="passos">
+  <li>Em <b>Camada</b>, escolha <b>Vazios de atendimento</b>. Os círculos ficam alaranjados.</li>
+  <li>Arraste o controle <b>Mínimo de estabelecimentos familiares</b> para definir a partir de quantos estabelecimentos um município entra na lista.</li>
+  <li>O painel mostra os maiores vazios, do maior para o menor.</li>
+</ol>
+<figure class="fig"><img src="img/05-geoportal-vazios.jpg" alt="Camada de vazios de atendimento em Goiás">
+  <figcaption>Figura 8 — Vazios de atendimento em Goiás. <span class="n">1</span> camada · <span class="n">2</span> limite mínimo · <span class="n">3</span> lista ordenada.</figcaption>
+</figure>
+<div class="dica"><b>Dicas</b><ul>
+  <li>Use os botões <b>+</b> e <b>−</b> do mapa, ou a roda do mouse, para aproximar e afastar.</li>
+  <li>A caixa <b>Mapa de ruas (OpenStreetMap)</b> acrescenta ruas e cidades ao fundo (precisa de internet).</li>
+  <li>Passe o mouse sobre um círculo para ver o nome do município e a quantidade.</li>
+</ul></div>
+<div class="atencao"><b>Como ler o mapa com cuidado</b><ul>
+  <li>A base traz <b>todas</b> as cooperativas ativas, de todos os ramos. O recorte da agricultura familiar depende do cadastro CAF Jurídico, do MDA, ainda não integrado.</li>
+  <li>O círculo fica na <b>sede do município</b>, não no endereço da cooperativa.</li>
+  <li>O <b>ramo</b> é estimado pela atividade principal (CNAE) registrada na Receita Federal.</li>
+</ul></div>
+<div class="uso"><b>Aplicações práticas</b><ul>
+  <li><b>Gestor municipal:</b> listar as cooperativas do município antes de lançar uma chamada pública.</li>
+  <li><b>Gestor estadual ou federal:</b> identificar regiões com agricultura familiar e sem cooperativa para orientar fomento e ATER.</li>
+  <li><b>Pesquisador:</b> localizar cooperativas de um ramo em uma região para estudo de campo.</li>
+  <li><b>Cooperativa:</b> conhecer as cooperativas vizinhas para parcerias e intercooperação.</li>
+</ul></div>
+
+<!-- ============================================================ -->
+<h1>7. Sala de Situação</h1>
+<h2>Para que serve</h2>
+<p>Acompanhar sinais de clima, vegetação e solo por território e avisar quando uma combinação desses sinais indica risco para as cooperativas, como uma seca agrícola.</p>
+<div class="atencao"><b>Tela em demonstração</b>Os territórios e os valores desta tela são ilustrativos. O que já funciona de verdade é o <b>motor de alertas</b>: as regras que você ajusta mudam os alertas na hora. A ligação com os dados de satélite é a próxima etapa.</div>
+<figure class="fig"><img src="img/06-sala.jpg" alt="Sala de Situação">
+  <figcaption>Figura 9 — Sala de Situação.</figcaption>
+  <ul class="leg">
+    <li><b class="n">1</b> <span>Resumo: alertas, territórios e cooperativas afetadas.</span></li>
+    <li><b class="n">2</b> <span>Central de alertas, do mais grave ao menos grave.</span></li>
+    <li><b class="n">3</b> <span>Regras: ligue, desligue e mude os limites.</span></li>
+  </ul>
+</figure>
+<h2>Passo a passo: ajustar uma regra de alerta</h2>
+<ol class="passos">
+  <li>Em <b>Regras de alerta</b>, localize a regra (por exemplo, <b>Seca agrícola</b>).</li>
+  <li>Mude o número do limite. Exemplo: anomalia de chuva menor que <b>−40</b> em vez de −30.</li>
+  <li>Veja a <b>Central de alertas</b> e a tabela <b>Situação por território</b> se atualizarem.</li>
+  <li>Para desligar uma regra, desmarque a caixa ao lado do nome. Para voltar ao padrão, clique em <b>Restaurar</b>.</li>
+</ol>
+<p>Uma regra dispara quando <b>todas</b> as suas condições são verdadeiras. A regra de seca agrícola, por exemplo, exige vegetação abaixo do normal <b>e</b> chuva abaixo do normal ao mesmo tempo.</p>
+<div class="uso"><b>Aplicações práticas (quando os dados reais estiverem conectados)</b><ul>
+  <li><b>Defesa Civil e gestores:</b> lista de municípios e cooperativas em área de seca para ações de emergência e Garantia-Safra.</li>
+  <li><b>Técnico de ATER:</b> priorizar visitas nas áreas em alerta.</li>
+  <li><b>Cooperativa:</b> antecipar decisões de plantio, colheita e armazenagem.</li>
+</ul></div>
+
+<!-- ============================================================ -->
+<h1>8. Políticas Públicas</h1>
+<h2>Para que serve</h2>
+<p>Mostrar onde está a agricultura familiar, onde há cooperativas para atendê-la e quanto das políticas públicas chega a cada território. O módulo tem três abas.</p>
+<h2>Aba 1 — Presença cooperativa</h2>
+<p>Compara os estados pelo número de cooperativas agropecuárias para cada 10 mil estabelecimentos da agricultura familiar.</p>
+<figure class="fig"><img src="img/07-politicas-presenca.jpg" alt="Aba Presença cooperativa">
+  <figcaption>Figura 10 — Presença cooperativa. <span class="n">1</span> abas · <span class="n">2</span> números do Brasil · <span class="n">3</span> tabela por estado.</figcaption>
+</figure>
+<h2>Aba 2 — Vazios de atendimento</h2>
+<p>É a <b>fila de prioridades</b>: municípios com muitos estabelecimentos familiares e nenhuma cooperativa agropecuária com sede no local.</p>
+<ol class="passos">
+  <li>Clique na aba <b>Vazios de atendimento</b>.</li>
+  <li>Ajuste o <b>mínimo de estabelecimentos familiares</b> e, se quiser, escolha um <b>estado</b>.</li>
+  <li>Leia a fila, que vem ordenada do maior vazio para o menor.</li>
+  <li>Clique em <b>Baixar lista (CSV)</b> para abrir a lista completa em uma planilha.</li>
+</ol>
+<figure class="fig"><img src="img/08-politicas-vazios.jpg" alt="Aba Vazios de atendimento">
+  <figcaption>Figura 11 — Vazios de atendimento. <span class="n">1</span> limite mínimo · <span class="n">2</span> totais · <span class="n">3</span> fila de prioridades.</figcaption>
+</figure>
+<h2>Aba 3 — Calculadora do ICPP</h2>
+<p>O <b>ICPP (Índice de Cobertura de Políticas Públicas)</b> vai de 0 a 1 e resume seis componentes: Cadastro (CAF), Crédito (Pronaf), ATER, PNAE, PAA e Proteção (Garantia-Safra e SEAF). Quanto mais perto de 1, maior a cobertura.</p>
+<ol class="passos">
+  <li>Clique na aba <b>Calculadora do ICPP</b>.</li>
+  <li>Digite o nome do <b>município</b> e escolha-o na lista. A plataforma traz o número de estabelecimentos familiares (IBGE).</li>
+  <li>Preencha os valores de cada política no município. Para conhecer a ferramenta, use <b>Preencher com valores de exemplo</b>.</li>
+  <li>Veja o <b>resultado</b> e a barra de cada componente.</li>
+  <li>Se quiser, mude os <b>pesos</b> para dar mais importância a uma política.</li>
+</ol>
+<figure class="fig"><img src="img/09-politicas-icpp.jpg" alt="Calculadora do ICPP">
+  <figcaption>Figura 12 — Calculadora do ICPP. <span class="n">1</span> município · <span class="n">2</span> valores informados · <span class="n">3</span> índice calculado.</figcaption>
+</figure>
+<table>
+  <tr><th>Como o índice é calculado</th></tr>
+  <tr><td>Cada componente = valor informado ÷ estabelecimentos familiares (limitado a 1). O PNAE = percentual de compras ÷ meta legal. O ICPP é a média dos seis componentes, ponderada pelos pesos.</td></tr>
+</table>
+<table>
+  <tr><th style="width:30%">Faixa</th><th>Leitura</th></tr>
+  <tr><td>0,70 ou mais</td><td>Cobertura alta</td></tr>
+  <tr><td>0,40 a 0,69</td><td>Cobertura média</td></tr>
+  <tr><td>abaixo de 0,40</td><td>Cobertura baixa</td></tr>
+</table>
+<div class="atencao"><b>Por que os valores são digitados</b>O denominador (estabelecimentos familiares) já é oficial. Os numeradores dependem de convênios com MDA, Banco Central, FNDE e ANATER. Quando essas fontes forem integradas, o índice será calculado automaticamente para todos os municípios.</div>
+<div class="uso"><b>Aplicações práticas</b><ul>
+  <li><b>Gestor público:</b> usar a fila de vazios para escolher onde lançar editais de ATER ou de fomento ao cooperativismo.</li>
+  <li><b>Secretaria municipal:</b> calcular o ICPP do município com os próprios números e identificar a política mais fraca.</li>
+  <li><b>Pesquisador:</b> comparar estados pela densidade de cooperativas e baixar a lista para análise.</li>
+</ul></div>
+
+<!-- ============================================================ -->
+<h1>9. Demandas</h1>
+<h2>Para que serve</h2>
+<p>Registrar as dores e necessidades das cooperativas, identificar o tema de cada uma, sugerir para quem encaminhar e acompanhar até a solução.</p>
+<figure class="fig"><img src="img/10-demandas.jpg" alt="Tela de demandas">
+  <figcaption>Figura 13 — Demandas.</figcaption>
+  <ul class="leg">
+    <li><b class="n">1</b> <span>Formulário de registro.</span></li>
+    <li><b class="n">2</b> <span>Tema identificado e encaminhamento sugerido.</span></li>
+    <li><b class="n">3</b> <span>Quadro de acompanhamento, em quatro etapas.</span></li>
+  </ul>
+</figure>
+<h2>Passo a passo: registrar uma demanda</h2>
+<ol class="passos">
+  <li>Escreva um <b>título</b> curto.</li>
+  <li>Em <b>O que está acontecendo?</b>, descreva a situação com suas palavras.</li>
+  <li>Enquanto você escreve, a plataforma mostra o <b>tema identificado</b> e o <b>encaminhamento sugerido</b>. Se o texto tiver palavras como “urgente”, a demanda recebe <b>prioridade alta</b>.</li>
+  <li>Informe quem registra, o estado e o município.</li>
+  <li>Clique em <b>Registrar</b>. A demanda aparece na coluna <b>Classificada</b>.</li>
+</ol>
+<h2>Passo a passo: acompanhar no quadro</h2>
+<ol class="passos">
+  <li>Localize o cartão da demanda no quadro.</li>
+  <li>Clique em <b>Avançar →</b> para levá-la à etapa seguinte: Nova → Classificada → Encaminhada → Resolvida.</li>
+  <li>Se precisar, clique em <b>← Voltar</b>.</li>
+</ol>
+<table>
+  <tr><th style="width:36%">Tema</th><th>Encaminhamento sugerido</th></tr>
+  <tr><td>Clima e produção</td><td>Defesa Civil e ATER local</td></tr>
+  <tr><td>Crédito e financiamento</td><td>Agente financeiro / Pronaf</td></tr>
+  <tr><td>Comercialização e mercados</td><td>Núcleo de Mercados</td></tr>
+  <tr><td>Documentação e regularidade; Gestão</td><td>Núcleo de Assessoria em Gestão</td></tr>
+  <tr><td>Assistência técnica</td><td>Escritório de ATER</td></tr>
+  <tr><td>Infraestrutura e logística</td><td>Prefeitura / Estado</td></tr>
+</table>
+<div class="dica"><b>Dica</b>Os três cartões com a etiqueta <b>Exemplo</b> servem para mostrar como o quadro funciona. Use <b>Limpar tudo</b> para começar do zero.</div>
+<div class="uso"><b>Aplicações práticas</b><ul>
+  <li><b>Cooperativa:</b> registrar um problema e saber a quem recorrer.</li>
+  <li><b>Equipe do Centro e ATER:</b> organizar o atendimento por etapa.</li>
+  <li><b>Gestor público:</b> ver quais temas mais aparecem, pelo gráfico <b>Demandas por tema</b>.</li>
+</ul></div>
+
+<!-- ============================================================ -->
+<h1>10. ATER Virtual</h1>
+<h2>Para que serve</h2>
+<p>Dar orientação rápida a cooperados e dirigentes. O assistente responde com base em um conjunto de temas revisados e sempre indica a <b>fonte</b>. O que ele não sabe responder vai para a <b>fila do técnico</b>.</p>
+<figure class="fig"><img src="img/11-ater.jpg" alt="ATER Virtual">
+  <figcaption>Figura 14 — ATER Virtual.</figcaption>
+  <ul class="leg">
+    <li><b class="n">1</b> <span>Conversa, com a fonte de cada resposta.</span></li>
+    <li><b class="n">2</b> <span>Perguntas prontas: clique para perguntar.</span></li>
+    <li><b class="n">3</b> <span>Fila para o técnico.</span></li>
+  </ul>
+</figure>
+<h2>Passo a passo</h2>
+<ol class="passos">
+  <li>Clique em uma das <b>perguntas prontas</b> ou escreva a sua dúvida na caixa.</li>
+  <li>Aperte <b>Enter</b> ou clique no botão de enviar.</li>
+  <li>Leia a resposta e confira a <b>fonte</b> indicada abaixo dela.</li>
+  <li>Se o assistente não souber, ele avisa e coloca a pergunta na <b>Fila para o técnico</b>.</li>
+</ol>
+<p>Temas disponíveis nesta versão: PNAE, CAF, prazo da Assembleia Geral, fundos obrigatórios, época de plantio (ZARC), Pronaf e PAA.</p>
+<div class="atencao"><b>A ATER virtual complementa, não substitui</b>O atendimento do técnico presencial continua essencial. O assistente resolve dúvidas simples e libera o técnico para os casos que exigem visita.</div>
+<div class="uso"><b>Aplicações práticas</b><ul>
+  <li><b>Cooperado ou dirigente:</b> tirar uma dúvida fora do horário de atendimento.</li>
+  <li><b>Técnico de ATER:</b> receber, organizadas, as perguntas que precisam de resposta humana.</li>
+</ul></div>
+
+<!-- ============================================================ -->
+<h1>11. Mercados</h1>
+<h2>Para que serve</h2>
+<p>Aproximar quem compra de quem produz. O módulo encontra as cooperativas agropecuárias perto de um município comprador e guarda as chamadas públicas do PNAE e do PAA.</p>
+<figure class="fig"><img src="img/12-mercados.jpg" alt="Mercados">
+  <figcaption>Figura 15 — Mercados.</figcaption>
+  <ul class="leg">
+    <li><b class="n">1</b> <span>Município comprador.</span></li>
+    <li><b class="n">2</b> <span>Raio de busca, em quilômetros.</span></li>
+    <li><b class="n">3</b> <span>Cooperativas encontradas no raio.</span></li>
+    <li><b class="n">4</b> <span>Chamadas públicas cadastradas.</span></li>
+  </ul>
+</figure>
+<h2>Passo a passo: encontrar cooperativas perto de um comprador</h2>
+<ol class="passos">
+  <li>Em <b>Município comprador</b>, digite o nome e escolha na lista.</li>
+  <li>Arraste o controle do <b>raio</b> (de 25 a 300 km).</li>
+  <li>Veja o total e, abaixo, a tabela com cada cooperativa, o município e a distância.</li>
+</ol>
+<h2>Passo a passo: cadastrar uma chamada pública</h2>
+<ol class="passos">
+  <li>Em <b>Chamadas públicas</b>, preencha o órgão comprador, o programa, os produtos e o prazo.</li>
+  <li>Clique em <b>Adicionar chamada</b>.</li>
+</ol>
+<div class="dica"><b>Sobre a distância</b>A distância é medida em linha reta entre as sedes dos municípios. Por estrada, o percurso é maior.</div>
+<div class="uso"><b>Aplicações práticas</b><ul>
+  <li><b>Prefeitura ou secretaria de educação:</b> descobrir quais cooperativas podem fornecer para a alimentação escolar e convidá-las para a chamada pública.</li>
+  <li><b>Cooperativa:</b> acompanhar prazos de chamadas e identificar compradores próximos.</li>
+  <li><b>Gestor estadual:</b> avaliar se há oferta cooperativa suficiente em uma região.</li>
+</ul></div>
+
+<!-- ============================================================ -->
+<h1>12. Gestão Cooperativa</h1>
+<h2>Para que serve</h2>
+<p>Ajudar a cooperativa a se conhecer e se organizar. No campo <b>Cooperativa em análise</b>, escreva o nome da cooperativa. O módulo tem quatro abas.</p>
+<h2>Aba 1 — Diagnóstico IMGC</h2>
+<p>O <b>IMGC (Índice de Maturidade de Gestão Cooperativa)</b> é um questionário de 21 perguntas, em sete dimensões: Governança, Finanças, Contabilidade, Conformidade, Comercialização, Pessoas e Produção.</p>
+<ol class="passos">
+  <li>Para cada pergunta, escolha uma resposta: <b>Não existe</b>, <b>Inicial</b>, <b>Parcial</b>, <b>Implantado</b> ou <b>Consolidado</b>.</li>
+  <li>Acompanhe a barra de progresso no alto do questionário.</li>
+  <li>Veja, à direita, a <b>nota de 0 a 100</b>, o nível de maturidade e o gráfico com as sete dimensões.</li>
+  <li>Leia a frase que indica as <b>duas dimensões que pedem mais atenção</b>.</li>
+</ol>
+<figure class="fig"><img src="img/13-gestao-imgc.jpg" alt="Diagnóstico IMGC">
+  <figcaption>Figura 16 — Diagnóstico IMGC. <span class="n">1</span> abas · <span class="n">2</span> escala de resposta · <span class="n">3</span> nota e nível.</figcaption>
+</figure>
+<table>
+  <tr><th style="width:30%">Nota</th><th>Nível de maturidade</th></tr>
+  <tr><td>75 a 100</td><td>Consolidada</td></tr>
+  <tr><td>50 a 74</td><td>Em desenvolvimento</td></tr>
+  <tr><td>25 a 49</td><td>Inicial</td></tr>
+  <tr><td>0 a 24</td><td>Crítica</td></tr>
+</table>
+<h2>Aba 2 — Regularidade</h2>
+<p>Um <b>semáforo</b> dos documentos que a cooperativa precisa manter em dia para vender ao poder público.</p>
+<ol class="passos">
+  <li>Clique na aba <b>Regularidade</b>.</li>
+  <li>Informe a <b>data de validade</b> de cada documento.</li>
+  <li>Leia a situação: <b>verde</b> (em dia), <b>amarelo</b> (vence em até 30 dias) ou <b>vermelho</b> (vencido).</li>
+</ol>
+<figure class="fig"><img src="img/14-gestao-regularidade.jpg" alt="Painel de regularidade">
+  <figcaption>Figura 17 — Regularidade. <span class="n">1</span> situação geral · <span class="n">2</span> documentos e validade.</figcaption>
+</figure>
+<p>Documentos acompanhados: CNPJ, CAF Jurídico, certidão de tributos federais, regularidade do FGTS, certidão trabalhista, Assembleia Geral Ordinária e mandato da diretoria.</p>
+<h2>Aba 3 — Financeiro</h2>
+<ol class="passos">
+  <li>Clique na aba <b>Financeiro</b>.</li>
+  <li>Preencha os valores do exercício: receitas, custos, despesas, ativos e passivos.</li>
+  <li>Veja os <b>indicadores</b> (sobras, margem, liquidez, endividamento e capital de giro), cada um com uma leitura em cores.</li>
+  <li>Veja a <b>destinação das sobras</b>: Fundo de Reserva, FATES e o valor à disposição da assembleia.</li>
+</ol>
+<figure class="fig"><img src="img/15-gestao-financeiro.jpg" alt="Indicadores financeiros">
+  <figcaption>Figura 18 — Financeiro. <span class="n">1</span> dados do exercício · <span class="n">2</span> sobras · <span class="n">3</span> Fundo de Reserva.</figcaption>
+</figure>
+<div class="dica"><b>Regra dos fundos</b>A Lei 5.764/1971 (art. 28) exige no mínimo 10% das sobras para o Fundo de Reserva e 5% para o FATES. Se você digitar percentuais menores, a plataforma aplica os mínimos legais. O estatuto pode fixar percentuais maiores.</div>
+<h2>Aba 4 — Biblioteca</h2>
+<p>Lista os modelos de documentos (atas, estatuto, planilhas, projeto de venda) que estão sendo elaborados pelo Núcleo de Assessoria.</p>
+<div class="uso"><b>Aplicações práticas</b><ul>
+  <li><b>Dirigente:</b> preparar a cooperativa antes de uma chamada pública, conferindo os documentos.</li>
+  <li><b>Conselho fiscal:</b> conferir a destinação das sobras antes da assembleia.</li>
+  <li><b>Analista do Núcleo:</b> aplicar o IMGC no início e no fim da assessoria para medir a evolução.</li>
+  <li><b>Gestor de programa:</b> usar o IMGC para separar “a política não chega” de “a cooperativa não consegue acessar”.</li>
+</ul></div>
+
+<!-- ============================================================ -->
+<h1>13. Formação</h1>
+<h2>Para que serve</h2>
+<p>Apresentar as trilhas de capacitação a distância para dirigentes e conselheiros, com certificação prevista pelo IF Goiano.</p>
+<figure class="fig"><img src="img/16-formacao.jpg" alt="Catálogo de formação"><figcaption>Figura 19 — Catálogo das trilhas planejadas.</figcaption></figure>
+<p>Nesta versão o módulo mostra o <b>catálogo</b>: nome da trilha, público, carga horária e conteúdos. As aulas e as inscrições entram na próxima etapa.</p>
+<table>
+  <tr><th>Trilha</th><th style="width:34%">Público</th><th style="width:14%">Carga</th></tr>
+  <tr><td>Governança cooperativa na prática</td><td>Dirigentes e conselheiros</td><td>20 h</td></tr>
+  <tr><td>Finanças para o conselho fiscal</td><td>Conselheiros fiscais</td><td>16 h</td></tr>
+  <tr><td>Vendendo para o PNAE e o PAA</td><td>Dirigentes e equipe comercial</td><td>12 h</td></tr>
+  <tr><td>Sucessão e juventude na cooperativa</td><td>Dirigentes e jovens cooperados</td><td>10 h</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h1>14. Observatório</h1>
+<h2>Para que serve</h2>
+<p>É o espaço de análises, dados abertos e fichas técnicas. Foi pensado para pesquisadores, estudantes e gestores. Tem três abas.</p>
+<h2>Aba 1 — Demografia das cooperativas</h2>
+<p>Mostra como as cooperativas nascem e se encerram ao longo do tempo.</p>
+<figure class="fig"><img src="img/17-observatorio.jpg" alt="Demografia das cooperativas">
+  <figcaption>Figura 20 — Demografia. <span class="n">1</span> abas · <span class="n">2</span> situação dos registros · <span class="n">3</span> aberturas e baixas por ano.</figcaption>
+</figure>
+<ul>
+  <li><b>Abertas e baixadas por ano:</b> passe o mouse sobre o gráfico para ver os valores de cada ano.</li>
+  <li><b>Quantas continuam ativas:</b> percentual de cooperativas ainda ativas, por período de abertura.</li>
+  <li><b>Por ramo e por estado:</b> gráficos e tabela com o percentual de ativas.</li>
+</ul>
+<h2>Aba 2 — Dados abertos</h2>
+<ol class="passos">
+  <li>Clique na aba <b>Dados abertos</b>.</li>
+  <li>Leia a descrição de cada arquivo.</li>
+  <li>Clique no botão com o tamanho do arquivo para <b>baixar</b>.</li>
+</ol>
+<figure class="fig"><img src="img/18-observatorio-dados.jpg" alt="Dados abertos"><figcaption>Figura 21 — Dados abertos. <span class="n">1</span> botão de download.</figcaption></figure>
+<h2>Aba 3 — Catálogo de dados</h2>
+<p>Cada fonte tem uma ficha com: forma de acesso, atualização, cobertura, <b>linhagem</b> (o caminho do dado desde a origem até a tela) e limitações. Clique no nome da fonte para abrir a ficha.</p>
+<figure class="fig"><img src="img/19-observatorio-catalogo.jpg" alt="Catálogo de dados"><figcaption>Figura 22 — Catálogo de dados. <span class="n">1</span> ficha aberta de uma fonte.</figcaption></figure>
+<div class="uso"><b>Aplicações práticas</b><ul>
+  <li><b>Pesquisador:</b> baixar a base de cooperativas para dissertações e artigos; citar a fonte com base na ficha do catálogo.</li>
+  <li><b>Estudante:</b> usar os gráficos em trabalhos sobre cooperativismo.</li>
+  <li><b>Gestor de dados:</b> verificar a origem e as limitações de cada informação antes de usá-la em relatório oficial.</li>
+</ul></div>
+
+<!-- ============================================================ -->
+<h1>15. Resultados</h1>
+<h2>Para que serve</h2>
+<p>Reunir os nove indicadores de resultado do projeto e mostrar o valor atual de cada um, com a origem.</p>
+<figure class="fig"><img src="img/20-resultados.jpg" alt="Painel de resultados"><figcaption>Figura 23 — Indicadores de resultado.</figcaption></figure>
+<p>Nesta fase, o indicador de <b>território</b> (cooperativas georreferenciadas) já tem valor consolidado. Os demais aparecem como <b>A medir no piloto</b>, porque dependem do uso da plataforma pelas cooperativas.</p>
+
+<h1 class="segue">16. Administração</h1>
+<h2>Para que serve</h2>
+<p>Área da equipe do Centro. Aparece no menu apenas no perfil <b>Equipe do Centro</b>.</p>
+<figure class="fig"><img src="img/21-administracao.jpg" alt="Administração"><figcaption>Figura 24 — Administração. <span class="n">1</span> situação de cada fonte de dados.</figcaption></figure>
+<ul>
+  <li><b>Fontes de dados e cargas:</b> quais fontes estão carregadas, planejadas ou dependem de acordo.</li>
+  <li><b>Perfis e menus:</b> o que cada perfil enxerga.</li>
+  <li><b>Governança e LGPD:</b> regras de proteção de dados adotadas.</li>
+  <li><b>Apagar registros locais:</b> remove deste navegador tudo o que foi digitado (demandas, diagnósticos, datas).</li>
+</ul>
+
+<!-- ============================================================ -->
+<h1>17. O que fazer em cada perfil</h1>
+<table>
+  <tr><th style="width:24%">Se você é…</th><th>Comece por aqui</th><th style="width:30%">Resultado</th></tr>
+  <tr><td><b>Gestor público municipal</b></td><td>Geoportal → seu estado → seu município. Depois, Mercados → seu município como comprador.</td><td>Lista das cooperativas locais e vizinhas para compras públicas.</td></tr>
+  <tr><td><b>Gestor estadual ou federal</b></td><td>Políticas Públicas → Vazios de atendimento → baixar CSV.</td><td>Fila de municípios prioritários para fomento e ATER.</td></tr>
+  <tr><td><b>Dirigente de cooperativa</b></td><td>Gestão → Regularidade e Diagnóstico IMGC. Depois, Mercados.</td><td>Documentos sob controle, pontos fracos identificados e compradores próximos.</td></tr>
+  <tr><td><b>Conselheiro fiscal</b></td><td>Gestão → Financeiro.</td><td>Indicadores e destinação das sobras para a assembleia.</td></tr>
+  <tr><td><b>Técnico de ATER</b></td><td>ATER Virtual → Fila para o técnico. Depois, Demandas.</td><td>Perguntas e demandas que precisam de atendimento.</td></tr>
+  <tr><td><b>Analista do Núcleo</b></td><td>Gestão → Diagnóstico IMGC, no início e no fim da assessoria.</td><td>Medida da evolução da cooperativa.</td></tr>
+  <tr><td><b>Pesquisador ou estudante</b></td><td>Observatório → Demografia, Dados abertos e Catálogo.</td><td>Análises prontas e dados para estudo.</td></tr>
+  <tr><td><b>Pessoa surda</b></td><td>Botão azul do VLibras, em qualquer tela.</td><td>Conteúdo traduzido para Libras.</td></tr>
+</table>
+
+<h1>18. Perguntas frequentes</h1>
+<h3>Preciso de cadastro ou senha?</h3>
+<p>Não nesta versão. O acesso com login e perfis virá na próxima etapa.</p>
+<h3>Os dados das cooperativas são oficiais?</h3>
+<p>Sim. Tudo o que tem a etiqueta <span class="etq real">● Dados reais</span> vem dos dados abertos da Receita Federal (CNPJ) e do IBGE. São dados públicos de pessoas jurídicas.</p>
+<h3>Por que minha cooperativa aparece no centro do município e não no endereço?</h3>
+<p>Nesta versão a localização é feita pela sede do município. A localização pelo endereço é uma etapa seguinte.</p>
+<h3>Minha cooperativa não aparece. Por quê?</h3>
+<p>A base traz as cooperativas com situação <b>ativa</b> no CNPJ e natureza jurídica de cooperativa. Verifique a situação cadastral na Receita Federal. Associações não entram nesta base.</p>
+<h3>O ramo da minha cooperativa está errado.</h3>
+<p>O ramo é estimado pela atividade principal (CNAE) informada à Receita. O ramo oficial é o do registro na OCB e será incorporado por parceria.</p>
+<h3>Registrei uma demanda e ela sumiu.</h3>
+<p>Os registros ficam no navegador em que foram feitos. Eles somem se você usar outro aparelho, outro navegador, a janela anônima ou se limpar os dados de navegação.</p>
+<h3>O VLibras não abriu.</h3>
+<p>Ele precisa de internet e pode levar alguns segundos para carregar. Se a rede da sua instituição bloquear o endereço <code>vlibras.gov.br</code>, peça a liberação ao suporte.</p>
+<h3>Posso usar os dados em um trabalho?</h3>
+<p>Sim. Cite as fontes originais (Receita Federal e IBGE) e o CITA-COOP como responsável pelo tratamento.</p>
+
+<h1>19. Glossário</h1>
+<table>
+  <tr><th style="width:22%">Termo</th><th>Significado</th></tr>
+  <tr><td><b>ATER</b></td><td>Assistência Técnica e Extensão Rural.</td></tr>
+  <tr><td><b>CAF</b></td><td>Cadastro Nacional da Agricultura Familiar, do MDA. Substituiu a DAP.</td></tr>
+  <tr><td><b>CNAE</b></td><td>Classificação Nacional de Atividades Econômicas: o código da atividade da empresa.</td></tr>
+  <tr><td><b>CNPJ</b></td><td>Cadastro Nacional da Pessoa Jurídica, da Receita Federal.</td></tr>
+  <tr><td><b>FATES</b></td><td>Fundo de Assistência Técnica, Educacional e Social das cooperativas.</td></tr>
+  <tr><td><b>ICPP</b></td><td>Índice de Cobertura de Políticas Públicas (0 a 1).</td></tr>
+  <tr><td><b>IMGC</b></td><td>Índice de Maturidade de Gestão Cooperativa (0 a 100).</td></tr>
+  <tr><td><b>NDVI</b></td><td>Índice de vegetação medido por satélite; indica o vigor das plantas.</td></tr>
+  <tr><td><b>PAA</b></td><td>Programa de Aquisição de Alimentos.</td></tr>
+  <tr><td><b>PNAE</b></td><td>Programa Nacional de Alimentação Escolar.</td></tr>
+  <tr><td><b>Pronaf</b></td><td>Programa Nacional de Fortalecimento da Agricultura Familiar (crédito).</td></tr>
+  <tr><td><b>TRL</b></td><td>Nível de maturidade tecnológica, em escala de 1 a 9.</td></tr>
+  <tr><td><b>VLibras</b></td><td>Ferramenta do governo federal que traduz português para Libras.</td></tr>
+  <tr><td><b>ZARC</b></td><td>Zoneamento Agrícola de Risco Climático.</td></tr>
+</table>
+
+<h1>20. Limites desta versão</h1>
+<p>Esta é a versão 0.4 da plataforma, um protótipo validado em laboratório (TRL 4). Para usar bem, tenha em mente:</p>
+<table>
+  <tr><th style="width:34%">Hoje</th><th>Próxima etapa</th></tr>
+  <tr><td>Todas as cooperativas, de todos os ramos</td><td>Recorte da agricultura familiar com o CAF Jurídico (MDA)</td></tr>
+  <tr><td>Localização pela sede do município</td><td>Localização por CEP e endereço</td></tr>
+  <tr><td>Registros guardados no navegador</td><td>Banco de dados central, com login por perfil</td></tr>
+  <tr><td>ICPP calculado com valores digitados</td><td>Cálculo automático com dados de MDA, Banco Central, FNDE e ANATER</td></tr>
+  <tr><td>Sala de Situação com cenário ilustrativo</td><td>Dados de satélite e estações meteorológicas</td></tr>
+  <tr><td>Assistente que responde por regras</td><td>Atendimento por WhatsApp e uso de inteligência artificial</td></tr>
+  <tr><td>Catálogo de trilhas de formação</td><td>Aulas, inscrições e certificados</td></tr>
+</table>
+<p>Dúvidas e sugestões: procure a equipe do CITA-COOP na sua instituição.</p>
+
+</body>
+</html>

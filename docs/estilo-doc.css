@@ -1,0 +1,65 @@
+/* Estilo comum dos documentos em PDF (manual e dossiê de TRL). */
+@page { size: A4; margin: 17mm 16mm 18mm; }
+* { box-sizing: border-box; }
+html { font-size: 10.6pt; }
+body { margin: 0; font-family: 'Inter Variable', 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; color: #14213a; line-height: 1.55; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+h1, h2, h3, h4 { font-family: 'Space Grotesk Variable', 'Space Grotesk', 'Inter Variable', 'Segoe UI', Arial, sans-serif; color: #0b2a5e; line-height: 1.2; letter-spacing: -.01em; break-after: avoid; }
+h1 { font-size: 21pt; margin: 0 0 6mm; padding-bottom: 3mm; border-bottom: 2px solid #0f62d6; break-before: page; }
+h1:first-of-type { break-before: auto; }
+h2 { font-size: 14pt; margin: 8mm 0 3mm; }
+h3 { font-size: 11.5pt; margin: 6mm 0 2mm; color: #14213a; }
+p { margin: 0 0 3mm; }
+a { color: #0f62d6; text-decoration: none; }
+ul, ol { margin: 0 0 3mm; padding-left: 6mm; }
+li { margin-bottom: 1.2mm; }
+code { font-family: 'JetBrains Mono', Consolas, monospace; font-size: .88em; background: #eef3f9; padding: .5px 4px; border-radius: 3px; }
+pre { background: #0f1b2d; color: #e6edf7; padding: 4mm; border-radius: 3mm; font-size: 8pt; line-height: 1.45; white-space: pre-wrap; overflow-wrap: anywhere; break-inside: avoid; }
+pre code { background: none; padding: 0; color: inherit; }
+table { border-collapse: collapse; width: 100%; margin: 2mm 0 5mm; font-size: 9.2pt; }
+th { text-align: left; background: #eef3f9; color: #0b2a5e; font-weight: 650; padding: 2mm 2.5mm; border-bottom: 1.5px solid #c9d6e8; }
+td { padding: 2mm 2.5mm; border-bottom: 1px solid #e1e8f1; vertical-align: top; }
+tr { break-inside: avoid; }
+blockquote { margin: 3mm 0 4mm; padding: 3mm 4mm; background: #eef5ff; border-left: 3px solid #0f62d6; border-radius: 0 2mm 2mm 0; break-inside: avoid; }
+blockquote p:last-child { margin-bottom: 0; }
+hr { border: 0; border-top: 1px solid #d5deea; margin: 6mm 0; }
+img { max-width: 100%; }
+
+/* capa */
+.capa { height: 258mm; display: flex; flex-direction: column; justify-content: space-between; padding: 14mm 12mm; border-radius: 5mm; color: #fff; background: radial-gradient(900px 380px at 90% 0%, rgba(62, 224, 176, .35), transparent 60%), linear-gradient(140deg, #0b2a5e, #0f62d6 75%); break-after: page; }
+.capa .marca { display: flex; align-items: center; gap: 4mm; font-family: 'Space Grotesk Variable', sans-serif; font-weight: 700; font-size: 15pt; }
+.capa .marca i { width: 12mm; height: 12mm; border-radius: 3mm; background: rgba(255, 255, 255, .16); border: 1px solid rgba(255, 255, 255, .4); display: grid; place-items: center; font-style: normal; }
+.capa .tipo { text-transform: uppercase; letter-spacing: .14em; font-size: 9pt; color: #9fe8d0; font-weight: 650; }
+.capa .titulo { font-family: 'Space Grotesk Variable', sans-serif; font-size: 31pt; line-height: 1.08; font-weight: 700; margin: 3mm 0 5mm; color: #fff; border: 0; padding: 0; }
+.capa .sub { font-size: 12.5pt; color: rgba(255, 255, 255, .88); max-width: 135mm; }
+.capa .pe { font-size: 9pt; color: rgba(255, 255, 255, .78); display: flex; justify-content: space-between; gap: 6mm; }
+
+/* manual */
+.lead { font-size: 11.6pt; color: #33415c; }
+.fig { margin: 4mm 0 5mm; break-inside: avoid; }
+.fig img { display: block; max-width: 100%; max-height: 98mm; margin: 0 auto; border: 1px solid #cfd9e6; border-radius: 2.5mm; }
+.fig figcaption { font-size: 8.8pt; color: #55657e; margin-top: 2mm; }
+.fig.celular { display: flex; gap: 5mm; justify-content: center; }
+.fig.celular img { width: 46mm; max-height: none; margin: 0; }
+.junto { break-inside: avoid; }
+h1.segue { break-before: auto; margin-top: 12mm; }
+.leg { list-style: none; padding: 0; margin: 2mm 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 1.2mm 6mm; font-size: 9.2pt; }
+.leg li { display: flex; gap: 2mm; align-items: baseline; margin: 0; }
+.leg b.n, .n { flex: none; display: inline-grid; place-items: center; width: 5mm; height: 5mm; border-radius: 50%; background: #d6336c; color: #fff; font-size: 7.6pt; font-weight: 700; }
+.passos { counter-reset: p; list-style: none; padding: 0; }
+.passos li { counter-increment: p; position: relative; padding-left: 9mm; margin-bottom: 2.2mm; }
+.passos li::before { content: counter(p); position: absolute; left: 0; top: .2mm; width: 6mm; height: 6mm; border-radius: 50%; background: #e6f0ff; color: #0b4bab; font-weight: 700; font-size: 8.6pt; display: grid; place-items: center; }
+.dica, .uso, .atencao { border-radius: 2.5mm; padding: 3mm 4mm; margin: 3mm 0 4mm; break-inside: avoid; font-size: 9.8pt; }
+.dica { background: #e2f7f0; border-left: 3px solid #0a9b76; }
+.uso { background: #eef5ff; border-left: 3px solid #0f62d6; }
+.atencao { background: #fff4d9; border-left: 3px solid #e09b00; }
+.dica > b:first-child, .uso > b:first-child, .atencao > b:first-child { display: block; margin-bottom: 1mm; }
+.dica ul, .uso ul, .atencao ul { margin-bottom: 0; }
+.etq { display: inline-block; font-size: 8pt; font-weight: 650; padding: .4mm 2.4mm; border-radius: 99px; border: 1px solid #c9d6e8; white-space: nowrap; }
+.etq.real { background: #e2f7f0; border-color: #9ad9c4; color: #06785b; }
+.etq.demo { border-style: dashed; color: #46566b; }
+.sumario { columns: 2; column-gap: 10mm; list-style: none; padding: 0; font-size: 10pt; }
+.sumario li { break-inside: avoid; margin-bottom: 1.6mm; }
+.sumario b { color: #0f62d6; display: inline-block; width: 7mm; }
+.assin { margin-top: 18mm; display: grid; grid-template-columns: 1fr 1fr; gap: 14mm; font-size: 9.5pt; }
+.assin div { border-top: 1px solid #14213a; padding-top: 2mm; text-align: center; }
+.campo-preencher { background: #fff4d9; padding: 0 1.5mm; border-radius: 1mm; }

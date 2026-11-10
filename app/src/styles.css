@@ -110,8 +110,8 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .principal { min-width: 0; display: flex; flex-direction: column; }
 .topo { position: sticky; top: 0; z-index: 1100; display: flex; align-items: center; gap: 10px; padding: 10px 28px; background: color-mix(in srgb, var(--fundo) 86%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--borda); }
 .topo .espaco { flex: 1; }
-.seletor-perfil { gap: 8px; flex-wrap: nowrap; min-width: 0; flex: 0 1 290px; }
-.seletor-perfil select { min-width: 0; }
+.linha.seletor-perfil { gap: 8px; flex-wrap: nowrap; min-width: 0; flex: 0 1 290px; }
+.linha.seletor-perfil select { min-width: 0; flex: 1; }
 .botao.botao-menu { display: none; }
 .conteudo { padding: 26px 28px 60px; max-width: 1320px; width: 100%; margin: 0 auto; }
 .rodape { margin-top: auto; padding: 18px 28px; border-top: 1px solid var(--borda); color: var(--texto-3); font-size: .78rem; display: flex; gap: 8px 20px; flex-wrap: wrap; }

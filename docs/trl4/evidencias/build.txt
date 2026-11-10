@@ -1,0 +1,19 @@
+vite v5.4.21 building for production...
+transforming...
+✓ 59 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                                    1.13 kB │ gzip:   0.59 kB
+dist/assets/space-grotesk-vietnamese-wght-normal-D0rl6rjA.woff2    6.71 kB
+dist/assets/inter-vietnamese-wght-normal-CBcvBZtf.woff2           10.25 kB
+dist/assets/inter-greek-ext-wght-normal-DlzME5K_.woff2            11.23 kB
+dist/assets/inter-cyrillic-wght-normal-DqGufNeO.woff2             18.75 kB
+dist/assets/space-grotesk-latin-ext-wght-normal-D9tNdqV9.woff2    18.94 kB
+dist/assets/inter-greek-wght-normal-CkhJZR-_.woff2                19.00 kB
+dist/assets/space-grotesk-latin-wght-normal-BhU9QXUp.woff2        22.29 kB
+dist/assets/inter-cyrillic-ext-wght-normal-BOeWTOD4.woff2         25.96 kB
+dist/assets/inter-latin-wght-normal-Dx4kXJAl.woff2                48.26 kB
+dist/assets/inter-latin-ext-wght-normal-DO1Apj_S.woff2            85.07 kB
+dist/assets/index-Z4ZjIU35.css                                    39.20 kB │ gzip:  12.17 kB
+dist/assets/index-DqLupi6D.js                                    423.81 kB │ gzip: 131.92 kB
+✓ built in 1.82s

@@ -1,0 +1,31 @@
+== 1. Base bruta (data/cooperativas_brasil.csv) ==
+[OK ] registros carregados — 84776
+[OK ] CNPJ sem duplicidade
+[OK ] dígitos verificadores do CNPJ válidos em 100% dos registros — 84776 de 84776
+[OK ] geocodificação nível município >= 99,9% — 99.986% (12 sem município)
+[OK ] UF do registro coincide com a UF do código IBGE
+[OK ] coordenadas dentro do território brasileiro
+[OK ] situações cadastrais reconhecidas — {'ATIVA': 38668, 'BAIXADA': 29688, 'SUSPENSA': 480, 'INAPTA': 15842, '01': 98}
+[OK ] 27 UFs com cooperativas ativas
+[OK ] datas de início plausíveis (1900–2026) em >= 99,9% das ativas
+== 2. Arquivos publicados (app/public/dados) ==
+[OK ] total de ativas publicado = base bruta — 38658
+[OK ] 5.572 municípios publicados
+[OK ] 27 UFs na malha
+[OK ] soma por município = total nacional
+[OK ] soma por UF = total nacional
+[OK ] soma por ramo = total nacional
+[OK ] 27 arquivos por UF somam o total nacional — 38658
+[OK ] índice de busca cobre todas as ativas
+[OK ] nenhum telefone ou e-mail publicado
+== 3. Censo Agropecuário 2017 (SIDRA 6778) ==
+[OK ] estabelecimentos agropecuários = total oficial do Censo (5.073.324) — 5073324
+[OK ] estabelecimentos da agricultura familiar = total oficial (3.897.408) — 3897408
+[OK ] familiar <= total em todos os municípios
+[OK ] municípios com dado do Censo >= 99% — 5563
+== 4. Demografia ==
+[OK ] série anual contínua 1990–2026
+[OK ] percentuais de sobrevivência entre 0 e 100
+[OK ] 27 UFs na tabela de demografia
+
+RESULTADO: TODAS AS VERIFICAÇÕES PASSARAM

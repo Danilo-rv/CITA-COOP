@@ -184,6 +184,10 @@ test('RNF-01 Acessibilidade: VLibras, idioma, atalho, tamanho de texto, contrast
   assert.equal(await p.getAttribute('html', 'lang'), 'pt-BR')
   assert.equal(await p.locator('[vw] [vw-access-button]').count(), 1, 'marcação do VLibras presente')
   assert.equal(await p.locator('script[src*="vlibras.gov.br"]').count(), 1, 'script oficial do VLibras')
+  if (await p.evaluate(() => window.__vlibras)) { // com internet: o widget oficial cria o botão de Libras
+    await p.waitForSelector('#vlibras-button', { state: 'attached', timeout: 10000 })
+    assert.match(await p.getAttribute('#vlibras-button', 'aria-label'), /Libras/)
+  }
   assert.equal(await p.locator('a.pular').count(), 1, 'atalho para pular ao conteúdo')
   await p.getByRole('button', { name: 'Aumentar o tamanho do texto' }).click()
   assert.equal(await p.getAttribute('html', 'data-fonte'), '1')

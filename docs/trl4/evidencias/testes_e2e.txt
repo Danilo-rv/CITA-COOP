@@ -1,0 +1,28 @@
+✔ RF-01 todas as 13 telas abrem com título e sem erro de execução (3419.383248ms)
+✔ RF-02 Início mostra os números reais da base nacional (58.882016ms)
+✔ RF-03 Geoportal desenha o mapa e filtra por estado e por ramo (266.751468ms)
+✔ RF-04 Geoportal abre a lista do município e a ficha da cooperativa (987.969746ms)
+✔ RF-05 Busca por nome encontra cooperativa e leva à ficha (1165.941672ms)
+✔ RF-06 Camada de vazios de atendimento responde ao limite mínimo (120.945411ms)
+✔ RF-07 Calculadora do ICPP usa o denominador do Censo e calcula a média ponderada (817.150757ms)
+✔ RF-08 Demandas: registra, classifica o tema, move no quadro e persiste (697.720666ms)
+✔ RF-09 ATER Virtual responde com fonte e encaminha o que não sabe (71.521865ms)
+✔ RF-10 Mercados lista cooperativas reais por raio de distância (101.028267ms)
+✔ RF-11 Gestão: IMGC pontua e o financeiro aplica os fundos legais (177.017198ms)
+✔ RF-12 Regularidade: semáforo muda com a data de validade (671.597933ms)
+✔ RF-13 Observatório: demografia, downloads e catálogo de dados (223.383532ms)
+✔ RNF-01 Acessibilidade: VLibras, idioma, atalho, tamanho de texto, contraste e tema (397.28782ms)
+✔ RNF-02 Navegação só com teclado chega ao conteúdo (596.77103ms)
+✔ RNF-03 Menu muda conforme o perfil (619.967321ms)
+✔ RNF-04 Layout responsivo em celular (390 px) sem rolagem horizontal (845.077519ms)
+    tempo até o mapa: 185 ms
+✔ RNF-05 Desempenho: mapa nacional pronto em menos de 5 s (185.360972ms)
+✔ RD-01 Integridade dos dados publicados (68.412665ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 11904.310403
