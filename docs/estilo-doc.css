@@ -63,3 +63,12 @@ h1.segue { break-before: auto; margin-top: 12mm; }
 .assin { margin-top: 18mm; display: grid; grid-template-columns: 1fr 1fr; gap: 14mm; font-size: 9.5pt; }
 .assin div { border-top: 1px solid #14213a; padding-top: 2mm; text-align: center; }
 .campo-preencher { background: #fff4d9; padding: 0 1.5mm; border-radius: 1mm; }
+
+/* dossiê: seções contínuas, sem quebra de página a cada título */
+.dossie h1 { break-before: auto; font-size: 16pt; margin: 9mm 0 4mm; }
+.dossie .capa + h1 { margin-top: 0; }
+.dossie .fig img { max-height: 105mm; }
+.declaracao { font-size: 9.4pt; }
+.declaracao h1 { margin-top: 0; }
+.declaracao h2 { margin: 5mm 0 2mm; }
+.declaracao .assin { margin-top: 13mm; }

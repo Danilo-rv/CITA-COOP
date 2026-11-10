@@ -139,7 +139,7 @@ Estratégia para georreferenciar **todas** as cooperativas do país, e não apen
 | Item | Resultado |
 |---|---|
 | Estabelecimentos de cooperativas (natureza 214-3) no CNPJ | 84.776 |
-| **Ativos** | **38.668** (15.646 matrizes) em 28 UFs e 4.455 municípios |
+| **Ativos** | **38.668** (15.646 matrizes); 38.658 localizados e publicados, em 27 UFs e 4.467 municípios |
 | Geocodificados no nível 1 (centroide do município) | 99,99% (12 sem município casado) |
 | Goiás (ativos) | 1.609 |
 
@@ -229,3 +229,20 @@ Arquivos: `dados/cooperativas_ativas_brasil.csv.gz` (sem telefone e e-mail). Scr
 - Quais Emater aceitam compartilhar dados de atendimento?
 - Como obter a lista do CAF Jurídico em massa (acordo com o MDA ou LAI)?
 - Qual o modelo de financiamento após o fomento inicial?
+
+## 9. Situação da construção (versão 0.4 — TRL 4)
+
+A plataforma foi construída em `app/` e validada em laboratório. O que está pronto e o que fica para as próximas etapas está descrito em `docs/trl4/` (dossiê de maturidade) e no `README.md`.
+
+| Item do plano | Situação na versão 0.4 |
+|---|---|
+| Geoportal nacional, busca e ficha | Pronto, com dados reais |
+| Vazios de atendimento e presença cooperativa | Pronto, com dados reais |
+| Demografia das cooperativas, dados abertos e catálogo de dados | Pronto, com dados reais |
+| Mercados (cooperativas por raio) | Pronto, com dados reais; chamadas em registro local |
+| Demandas, ATER Virtual, Gestão (IMGC, regularidade, financeiro) | Funcionais, com registro no navegador |
+| Calculadora do ICPP | Funcional; numeradores digitados |
+| Sala de Situação | Motor de alertas pronto; dados ilustrativos |
+| Formação | Catálogo das trilhas |
+| Acessibilidade (VLibras, contraste, teclado, texto) | Pronto e testado |
+| Login, banco central, WhatsApp, IA, satélite, CAF | Próximas etapas (TRL 5 em diante) |

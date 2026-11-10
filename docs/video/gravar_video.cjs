@@ -33,6 +33,14 @@ const SOBREPOSICAO = () => {
   fs.rmSync(BRUTO, { recursive: true, force: true })
   const b = await chromium.launch({ args: ['--lang=pt-BR'] })
   const ctx = await b.newContext({ viewport: { width: W, height: H }, locale: 'pt-BR', recordVideo: { dir: BRUTO, size: { width: W, height: H } } })
+  // O quadro 3D do intérprete do VLibras não é capturado pela gravação de vídeo do navegador.
+  // Por isso a cena de acessibilidade mostra uma captura de tela real da plataforma com o VLibras aberto.
+  const aq = await ctx.newPage()
+  await aq.goto(BASE + '/#/ajuda', { waitUntil: 'networkidle' })
+  await aq.evaluate(() => window.VLibrasWidget?.open?.()); await aq.waitForTimeout(18000)
+  const fotoVlibras = (await aq.screenshot({ type: 'jpeg', quality: 90 })).toString('base64')
+  const videoAq = await aq.video().path(); await aq.close(); fs.rmSync(videoAq, { force: true })
+  await ctx.addInitScript(() => { try { localStorage.removeItem('@vlibras-widget') } catch {} })
   await ctx.addInitScript(SOBREPOSICAO)
   const tPagina = Date.now()
   const p = await ctx.newPage()
@@ -51,9 +59,6 @@ const SOBREPOSICAO = () => {
   await p.goto(BASE + '/#/', { waitUntil: 'networkidle' })
   await capa('Centro de Inteligência Territorial Analítica em Cooperativas', 'CITA-COOP', 'Dados do território transformados em decisão.')
   const corte = (Date.now() - tPagina) / 1000 + 0.25 // tempo em branco antes da abertura, cortado do vídeo final
-  // o intérprete do VLibras demora a carregar: começa agora, invisível, para já estar pronto na cena de acessibilidade
-  await p.addStyleTag({ content: '#vlibras-app-root{opacity:0!important;pointer-events:none!important}' }).then((h) => h.evaluate((e) => (e.id = '__oculta_vlibras')))
-  await p.evaluate(() => window.VLibrasWidget?.open?.())
   await p.mouse.move(mx, my); await espera(3600); await semCapa(); marca('abertura')
 
   // 1 — início
@@ -109,11 +114,16 @@ const SOBREPOSICAO = () => {
   // 8 — acessibilidade
   await menu('Ajuda e acessibilidade'); await espera(500)
   await leg('<b>Acessível a todos:</b> Libras com o VLibras (gov.br), alto contraste e uso por teclado')
-  await ate(p.locator('#vlibras-button')).catch(() => {}); await espera(200)
-  await p.evaluate(() => { document.getElementById('__oculta_vlibras')?.remove(); window.VLibrasWidget?.open?.() }); await espera(2600)
-  await clicar(p.getByRole('button', { name: 'Alto contraste' })); await espera(1900)
-  await clicar(p.getByRole('button', { name: 'Alto contraste' })); await espera(900)
-  await mover(1000, 420, 30); await espera(2600); marca('acessibilidade')
+  await ate(p.locator('#vlibras-button')).catch(() => {}); await espera(500)
+  await p.evaluate((b64) => {
+    const i = document.createElement('img'); i.id = '__foto'; i.src = 'data:image/jpeg;base64,' + b64
+    i.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:2147483640;opacity:0;transition:opacity .35s'
+    document.documentElement.append(i); requestAnimationFrame(() => (i.style.opacity = 1))
+  }, fotoVlibras)
+  await espera(4300)
+  await p.evaluate(() => document.getElementById('__foto')?.remove())
+  await clicar(p.getByRole('button', { name: 'Alto contraste' })); await espera(2000)
+  await clicar(p.getByRole('button', { name: 'Alto contraste' })); await espera(700); marca('acessibilidade')
 
   // 9 — encerramento
   await leg('')
