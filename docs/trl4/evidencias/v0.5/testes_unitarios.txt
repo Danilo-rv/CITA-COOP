@@ -1,0 +1,80 @@
+
+ RUN  v2.1.9 /home/user/CITA-COOP/app
+
+ ✓ tests/risco.test.js > limites por quantil > divide valores uniformes em classes de tamanho parecido
+ ✓ tests/risco.test.js > limites por quantil > ignora nulos e NaN
+ ✓ tests/risco.test.js > limites por quantil > remove cortes repetidos quando há muitos zeros
+ ✓ tests/risco.test.js > limites por quantil > lista vazia ou constante não gera cortes
+ ✓ tests/risco.test.js > classe > atribui a classe pelo corte
+ ✓ tests/risco.test.js > classe > valor igual ao corte vai para a classe de cima
+ ✓ tests/risco.test.js > classe > sem dado devolve -1
+ ✓ tests/risco.test.js > percentis > menor valor = 0 e maior = 100
+ ✓ tests/risco.test.js > percentis > empates recebem o posto médio
+ ✓ tests/risco.test.js > percentis > nulos continuam nulos
+ ✓ tests/risco.test.js > percentis > um só valor fica em 50
+ ✓ tests/risco.test.js > percentis > lista sem valores
+ ✓ tests/risco.test.js > percentis > mantém a ordem da lista original
+ ✓ tests/risco.test.js > estatística simples > mediana de quantidade par e ímpar
+ ✓ tests/risco.test.js > estatística simples > média ignora nulos
+ ✓ tests/risco.test.js > nota de prioridade > média simples quando os pesos são iguais
+ ✓ tests/risco.test.js > nota de prioridade > respeita os pesos
+ ✓ tests/risco.test.js > nota de prioridade > reescala os pesos quando falta um componente
+ ✓ tests/risco.test.js > nota de prioridade > com menos de 3 componentes não há nota
+ ✓ tests/risco.test.js > nota de prioridade > pesos todos zero não geram nota
+ ✓ tests/risco.test.js > nota de prioridade > fica entre 0 e 100
+ ✓ tests/risco.test.js > cores e formatação > rampa tem o número pedido de cores e inverte no escuro
+ ✓ tests/risco.test.js > cores e formatação > rampa de uma classe
+ ✓ tests/risco.test.js > cores e formatação > valores em reais
+ ✓ tests/risco.test.js > cores e formatação > formata com unidade e casas decimais
+ ✓ tests/risco.test.js > catálogo de indicadores > ids únicos e todos os temas existem
+ ✓ tests/risco.test.js > catálogo de indicadores > todo indicador tem rótulo e coluna
+ ✓ tests/calc.test.js > distanciaKm > é zero para o mesmo ponto
+ ✓ tests/calc.test.js > distanciaKm > Goiânia–Brasília fica perto de 173 km
+ ✓ tests/calc.test.js > distanciaKm > é simétrica
+ ✓ tests/calc.test.js > ICPP > normaliza componentes pelo número de estabelecimentos familiares
+ ✓ tests/calc.test.js > ICPP > limita componentes a 1 (cobertura acima de 100%)
+ ✓ tests/calc.test.js > ICPP > denominador zero não gera divisão por zero
+ ✓ tests/calc.test.js > ICPP > média simples com pesos iguais
+ ✓ tests/calc.test.js > ICPP > respeita os pesos
+ ✓ tests/calc.test.js > ICPP > fica sempre entre 0 e 1
+ ✓ tests/calc.test.js > ICPP > pesos todos zero devolvem 0
+ ✓ tests/calc.test.js > ICPP > classifica faixas
+ ✓ tests/calc.test.js > presença cooperativa > densidade por 10 mil estabelecimentos
+ ✓ tests/calc.test.js > presença cooperativa > densidade com denominador zero
+ ✓ tests/calc.test.js > presença cooperativa > vazio de atendimento
+ ✓ tests/calc.test.js > IMGC > tem 7 dimensões com 3 perguntas
+ ✓ tests/calc.test.js > IMGC > nota máxima = 100 e mínima = 0
+ ✓ tests/calc.test.js > IMGC > nota intermediária
+ ✓ tests/calc.test.js > IMGC > sem respostas devolve nulo e incompleto
+ ✓ tests/calc.test.js > IMGC > respostas parciais contam só as dimensões respondidas
+ ✓ tests/calc.test.js > IMGC > ignora valores inválidos
+ ✓ tests/calc.test.js > IMGC > níveis de maturidade
+ ✓ tests/calc.test.js > conformidade > documento em dia
+ ✓ tests/calc.test.js > conformidade > documento a vencer em até 30 dias
+ ✓ tests/calc.test.js > conformidade > documento vencido
+ ✓ tests/calc.test.js > conformidade > vence hoje
+ ✓ tests/calc.test.js > conformidade > sem data
+ ✓ tests/calc.test.js > conformidade > semáforo geral mostra a pior situação
+ ✓ tests/calc.test.js > financeiro > calcula indicadores
+ ✓ tests/calc.test.js > financeiro > destina no mínimo 10% ao Fundo de Reserva e 5% ao FATES
+ ✓ tests/calc.test.js > financeiro > não aceita percentuais abaixo do mínimo legal
+ ✓ tests/calc.test.js > financeiro > aceita percentuais maiores definidos no estatuto
+ ✓ tests/calc.test.js > financeiro > com perdas não há destinação
+ ✓ tests/calc.test.js > financeiro > campos vazios não quebram
+ ✓ tests/calc.test.js > demandas > classifica por tema
+ ✓ tests/calc.test.js > demandas > ignora acentos e maiúsculas
+ ✓ tests/calc.test.js > demandas > texto sem termos conhecidos vai para outros
+ ✓ tests/calc.test.js > demandas > detecta urgência
+ ✓ tests/calc.test.js > alertas > dispara só quando todas as condições são verdadeiras
+ ✓ tests/calc.test.js > alertas > ordena do mais grave para o menos grave
+ ✓ tests/calc.test.js > alertas > regra desativada não dispara
+ ✓ tests/calc.test.js > formatação > CNPJ e CEP
+ ✓ tests/calc.test.js > formatação > nome em formato de título
+ ✓ tests/calc.test.js > formatação > valores ausentes viram travessão
+ ✓ tests/calc.test.js > formatação > percentual
+
+ Test Files  2 passed (2)
+      Tests  71 passed (71)
+   Start at  03:25:36
+   Duration  320ms (transform 78ms, setup 0ms, collect 99ms, tests 56ms, environment 0ms, prepare 103ms)
+

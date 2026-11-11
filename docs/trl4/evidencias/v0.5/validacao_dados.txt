@@ -1,0 +1,52 @@
+== 1. Base bruta (data/cooperativas_brasil.csv) ==
+[OK ] registros carregados — 84776
+[OK ] CNPJ sem duplicidade
+[OK ] dígitos verificadores do CNPJ válidos em 100% dos registros — 84776 de 84776
+[OK ] geocodificação nível município >= 99,9% — 99.986% (12 sem município)
+[OK ] UF do registro coincide com a UF do código IBGE
+[OK ] coordenadas dentro do território brasileiro
+[OK ] situações cadastrais reconhecidas — {'ATIVA': 38668, 'BAIXADA': 29688, 'SUSPENSA': 480, 'INAPTA': 15842, '01': 98}
+[OK ] 27 UFs com cooperativas ativas
+[OK ] datas de início plausíveis (1900–2026) em >= 99,9% das ativas
+== 2. Arquivos publicados (app/public/dados) ==
+[OK ] total de ativas publicado = base bruta — 38658
+[OK ] 5.572 municípios publicados
+[OK ] 27 UFs na malha
+[OK ] soma por município = total nacional
+[OK ] soma por UF = total nacional
+[OK ] soma por ramo = total nacional
+[OK ] 27 arquivos por UF somam o total nacional — 38658
+[OK ] índice de busca cobre todas as ativas
+[OK ] nenhum telefone ou e-mail publicado
+== 3. Censo Agropecuário 2017 (SIDRA 6778) ==
+[OK ] estabelecimentos agropecuários = total oficial do Censo (5.073.324) — 5073324
+[OK ] estabelecimentos da agricultura familiar = total oficial (3.897.408) — 3897408
+[OK ] familiar <= total em todos os municípios
+[OK ] municípios com dado do Censo >= 99% — 5563
+== 4. Demografia ==
+[OK ] série anual contínua 1990–2026
+[OK ] percentuais de sobrevivência entre 0 e 100
+[OK ] 27 UFs na tabela de demografia
+== 5. Risco territorial (data/risco e arquivos publicados) ==
+[OK ] 5.572 municípios, códigos únicos
+[OK ] mesmos códigos IBGE da base de cooperativas
+[OK ] todas as colunas alinhadas com os municípios — 49 indicadores
+[OK ] Atlas: soma dos desastres por município = 76.190 registros do arquivo — 76190
+[OK ] Atlas: soma por grupo de desastre = total
+[OK ] IVS entre 0 e 1 (o −1 de “sem dado” foi tratado)
+[OK ] IVS 2010: dado em mais de 99% dos municípios — 5556
+[OK ] IVS médio caiu de 2000 para 2010 (Censo)
+[OK ] ISH entre 1 e 5, com dado em mais de 99% dos municípios
+[OK ] solo: pH, argila, areia e carbono em faixas físicas
+[OK ] solo: argila + areia <= 100% em todos os municípios
+[OK ] solo: dado em mais de 99% dos municípios — 5570
+[OK ] população GHSL 2020 próxima da estimativa oficial (203 a 215 milhões) — 212,229,377
+[OK ] população GHSL cresceu de 2000 para 2020 — 175,097,244
+[OK ] São Paulo (3550308) é o município mais populoso
+[OK ] percentual rural entre 0 e 100
+[OK ] rede de rios: 99% dos municípios com algum trecho
+[OK ] bacia (nível 5) atribuída a todos os municípios
+[OK ] um contorno por município no mapa
+[OK ] série anual de desastres fecha com o total (soma Brasil = 76.190)
+
+RESULTADO: TODAS AS VERIFICAÇÕES PASSARAM

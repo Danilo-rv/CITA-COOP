@@ -1,0 +1,33 @@
+✔ RF-01 todas as 14 telas abrem com título e sem erro de execução (3412.102577ms)
+✔ RF-02 Início mostra os números reais da base nacional (51.063339ms)
+✔ RF-03 Geoportal desenha o mapa e filtra por estado e por ramo (206.673389ms)
+✔ RF-04 Geoportal abre a lista do município e a ficha da cooperativa (919.519395ms)
+✔ RF-05 Busca por nome encontra cooperativa e leva à ficha (1082.840644ms)
+✔ RF-06 Camada de vazios de atendimento responde ao limite mínimo (102.26138ms)
+✔ RF-07 Calculadora do ICPP usa o denominador do Censo e calcula a média ponderada (736.156121ms)
+✔ RF-08 Demandas: registra, classifica o tema, move no quadro e persiste (659.182245ms)
+✔ RF-09 ATER Virtual responde com fonte e encaminha o que não sabe (100.83865ms)
+✔ RF-10 Mercados lista cooperativas reais por raio de distância (87.092056ms)
+✔ RF-11 Gestão: IMGC pontua e o financeiro aplica os fundos legais (152.541132ms)
+✔ RF-12 Regularidade: semáforo muda com a data de validade (620.985968ms)
+✔ RF-13 Observatório: demografia, downloads e catálogo de dados (172.253122ms)
+✔ RF-14 Risco Territorial: mapa colorido por município, troca de indicador e filtro por estado (686.023023ms)
+✔ RF-15 Risco Territorial: busca um município e mostra a ficha com todas as camadas e as cooperativas (1075.438469ms)
+✔ RF-16 Prioridades de apoio: pesos mudam a ordem, filtros mudam a lista e o CSV é gerado (1578.629544ms)
+✔ RF-17 Histórico de desastres e Fontes: números por estado e ficha de cada fonte (812.277342ms)
+✔ RNF-01 Acessibilidade: VLibras, idioma, atalho, tamanho de texto, contraste e tema (346.966131ms)
+✔ RNF-02 Navegação só com teclado chega ao conteúdo (619.790966ms)
+✔ RNF-03 Menu muda conforme o perfil (607.078726ms)
+✔ RNF-04 Layout responsivo em celular (390 px) sem rolagem horizontal (806.972017ms)
+    tempo até o mapa: 184 ms
+✔ RNF-05 Desempenho: mapa nacional pronto em menos de 5 s (184.973507ms)
+✔ RD-01 Integridade dos dados publicados (62.689604ms)
+✔ RD-02 Integridade dos dados de risco territorial (486.950359ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15963.421757
