@@ -7,6 +7,7 @@ import Inicio from './pages/Inicio.jsx'
 import Geoportal from './pages/Geoportal.jsx'
 import Sala from './pages/Sala.jsx'
 import Politicas from './pages/Politicas.jsx'
+import Risco from './pages/Risco.jsx'
 import Demandas from './pages/Demandas.jsx'
 import Ater from './pages/Ater.jsx'
 import Mercados from './pages/Mercados.jsx'
@@ -95,6 +96,7 @@ export default function App() {
             <Route path="/" element={<Inicio perfil={perfil} />} />
             <Route path="/geoportal" element={<Geoportal />} />
             <Route path="/sala-de-situacao" element={<Sala />} />
+            <Route path="/risco-territorial" element={<Risco />} />
             <Route path="/politicas-publicas" element={<Politicas />} />
             <Route path="/demandas" element={<Demandas />} />
             <Route path="/ater-virtual" element={<Ater />} />
@@ -112,7 +114,7 @@ export default function App() {
         <footer className="rodape">
           <span>CITA-COOP — Centro de Inteligência Territorial Analítica em Cooperativas</span>
           <span>Fontes: Receita Federal (CNPJ), IBGE (malhas e Censo Agropecuário 2017)</span>
-          <span>Versão 0.4 · protótipo TRL 4</span>
+          <span>Versão 0.5 · protótipo TRL 4</span>
         </footer>
       </div>
     </div>

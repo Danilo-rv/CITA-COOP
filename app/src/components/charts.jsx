@@ -133,3 +133,45 @@ export function Radar({ eixos, tamanho = 320 }) {
     </div>
   )
 }
+
+/** Dispersão com dica ao passar o mouse. pontos = [{ x, y, g, r }] (g = índice da categoria), cores/nomes = por categoria. */
+export function Dispersao({ pontos, xRot, yRot, xFmt = (v) => v, yFmt = fmtInt, cores, nomes, aoClicar, altura = 340 }) {
+  const W = 760, H = altura, m = { t: 14, r: 14, b: 40, l: 52 }
+  const ref = useRef(null)
+  const [sel, setSel] = useState(null)
+  const xs = pontos.map((p) => p.x), ys = pontos.map((p) => p.y)
+  const xMin = Math.min(...xs), xMax = Math.max(...xs)
+  const ordenado = [...ys].sort((a, b) => a - b)
+  const yTopo = Math.max(1, ordenado[Math.floor(ordenado.length * 0.995)] ?? 1)    // valores acima do 99,5º percentil são desenhados no topo
+  const px = (v) => m.l + ((v - xMin) / (xMax - xMin || 1)) * (W - m.l - m.r)
+  const py = (v) => m.t + (1 - Math.min(v, yTopo) / yTopo) * (H - m.t - m.b)
+  const marcas = [0, 0.25, 0.5, 0.75, 1]
+  const mover = (e) => {
+    const r = ref.current.getBoundingClientRect()
+    const mx = ((e.clientX - r.left) / r.width) * W, my = ((e.clientY - r.top) / r.height) * H
+    let melhor = null, d2 = 14 * 14
+    for (let i = 0; i < pontos.length; i++) {
+      const dx = px(pontos[i].x) - mx, dy = py(pontos[i].y) - my, d = dx * dx + dy * dy
+      if (d < d2) { d2 = d; melhor = i }
+    }
+    setSel(melhor)
+  }
+  return (
+    <div className="grafico">
+      <div className="legenda">{nomes.map((n, i) => <span key={n}><i style={{ background: cores[i], height: 10, width: 10, borderRadius: '50%' }} />{n}</span>)}</div>
+      <svg ref={ref} viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`Dispersão: ${xRot} e ${yRot} dos municípios`} onMouseMove={mover} onMouseLeave={() => setSel(null)} onClick={() => sel != null && aoClicar?.(pontos[sel])} style={{ cursor: sel != null ? 'pointer' : 'default' }}>
+        {marcas.map((f) => <g key={f}><line x1={m.l} x2={W - m.r} y1={py(f * yTopo)} y2={py(f * yTopo)} stroke="var(--grade)" /><text x={m.l - 8} y={py(f * yTopo) + 4} textAnchor="end">{yFmt(f * yTopo)}</text></g>)}
+        {marcas.map((f) => <text key={f} x={px(xMin + f * (xMax - xMin))} y={H - m.b + 16} textAnchor="middle">{xFmt(xMin + f * (xMax - xMin))}</text>)}
+        <text x={(m.l + W - m.r) / 2} y={H - 6} textAnchor="middle">{xRot}</text>
+        <text transform={`translate(12 ${(m.t + H - m.b) / 2}) rotate(-90)`} textAnchor="middle">{yRot}</text>
+        {pontos.map((p, i) => <circle key={i} cx={px(p.x)} cy={py(p.y)} r="2.6" fill={cores[p.g]} fillOpacity="0.5" />)}
+        {sel != null && <circle cx={px(pontos[sel].x)} cy={py(pontos[sel].y)} r="6" fill="none" stroke="var(--texto)" strokeWidth="2" />}
+      </svg>
+      {sel != null && (
+        <div className="dica" style={{ left: `${(px(pontos[sel].x) / W) * 100}%`, top: `${(py(pontos[sel].y) / H) * 100}%` }}>
+          <b>{pontos[sel].r}</b>{xRot}: {xFmt(pontos[sel].x)} · {yRot}: {yFmt(pontos[sel].y)}
+        </div>
+      )}
+    </div>
+  )
+}

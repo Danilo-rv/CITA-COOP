@@ -2,13 +2,13 @@
 
 **Centro de Inteligência Territorial Analítica em Cooperativas** — plataforma web que reúne as cooperativas do Brasil, a agricultura familiar e as políticas públicas para apoiar decisões territoriais.
 
-Versão 0.4 · protótipo validado em laboratório (**TRL 4**).
+Versão 0.5 · protótipo validado em laboratório (**TRL 4**). A versão 0.5 acrescenta a tela **Risco Territorial** (14 telas no total).
 
 ## O que há aqui
 
 | Pasta | Conteúdo |
 |---|---|
-| `app/` | A plataforma web (React + Vite + Leaflet), com 13 telas, testes e os dados publicados em `app/public/dados/` |
+| `app/` | A plataforma web (React + Vite + Leaflet), com 14 telas, testes e os dados publicados em `app/public/dados/` |
 | `scripts/etl/` | Rotinas que baixam e tratam os dados (Receita Federal e IBGE) e o script de validação |
 | `dados/` | Base nacional de cooperativas ativas em CSV compactado |
 | `supabase/schema.sql` | Esquema do banco PostgreSQL/PostGIS projetado para a próxima etapa (ainda não aplicado) |
@@ -35,9 +35,9 @@ A pasta `app/dist/`, gerada pelo `npm run build`, é um site estático: pode ser
 
 ```bash
 cd app
-npm test             # 44 testes unitários das regras de cálculo
-npm run test:e2e     # 19 testes de ponta a ponta (com `npm run preview` em execução; requer Playwright)
-cd .. && python3 scripts/etl/validar_dados.py   # 25 verificações da base (requer a pasta data/, gerada pela carga)
+npm test             # 71 testes unitários das regras de cálculo
+npm run test:e2e     # 24 testes de ponta a ponta (com `npm run preview` em execução; requer Playwright)
+cd .. && python3 scripts/etl/validar_dados.py   # 45 verificações da base (requer a pasta data/, gerada pela carga)
 ```
 
 ## Como atualizar os dados
@@ -51,6 +51,21 @@ python3 scripts/etl/validar_dados.py
 ```
 
 Dependências Python: `pyshp`, `shapely`.
+
+## Risco Territorial: como atualizar as camadas
+
+A tela cruza seis fontes com as cooperativas. Cada rotina grava um arquivo em `data/risco/` e o montador junta tudo:
+
+```bash
+python3 scripts/etl/risco_atlas.py <BD_Atlas_*.csv>          # Atlas Digital de Desastres (MDR), CSV do portal
+python3 scripts/etl/risco_ivs.py                             # IVS (Ipea), API pública do portal; espaçada de propósito
+python3 scripts/etl/risco_ghsl.py <pasta com os zip do GHSL> <BR_Municipios_2022.shp>
+python3 scripts/etl/risco_solo.py <BR_Municipios_2022.shp>   # SoilGrids lido pela rede (leva ~15 min)
+python3 scripts/etl/risco_hidro.py ish|bacias|rios|lagos <pasta com os dados brutos> <BR_Municipios_2022.shp>
+python3 scripts/etl/risco_montar.py <BR_Municipios_2022.shp> # gera app/public/dados/risco*.json
+```
+
+Dependências Python adicionais: `rasterio`, `pyproj`, `geopandas`, `pyogrio`, `pandas`.
 
 ## Como regerar os documentos
 

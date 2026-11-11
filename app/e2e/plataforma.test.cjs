@@ -27,12 +27,12 @@ after(async () => { await navegador.close() })
 
 const ROTAS = [
   ['/', 'Dados do território'], ['/geoportal', 'Geoportal das cooperativas'], ['/sala-de-situacao', 'Sala de Situação'],
-  ['/politicas-publicas', 'Políticas Públicas'], ['/demandas', 'Demandas'], ['/ater-virtual', 'ATER Virtual'], ['/mercados', 'Mercados'],
+  ['/risco-territorial', 'Risco Territorial'], ['/politicas-publicas', 'Políticas Públicas'], ['/demandas', 'Demandas'], ['/ater-virtual', 'ATER Virtual'], ['/mercados', 'Mercados'],
   ['/gestao', 'Gestão Cooperativa'], ['/formacao', 'Formação'], ['/observatorio', 'Observatório'], ['/resultados', 'Resultados'],
   ['/administracao', 'Administração'], ['/ajuda', 'Ajuda e acessibilidade'],
 ]
 
-test('RF-01 todas as 13 telas abrem com título e sem erro de execução', async () => {
+test('RF-01 todas as 14 telas abrem com título e sem erro de execução', async () => {
   for (const [rota, titulo] of ROTAS) {
     await abrir(rota)
     assert.match(await texto('h1'), new RegExp(titulo), `título da rota ${rota}`)
@@ -179,6 +179,75 @@ test('RF-13 Observatório: demografia, downloads e catálogo de dados', async ()
   assert.match(await texto('[data-teste=catalogo]'), /Linhagem/)
 })
 
+test('RF-14 Risco Territorial: mapa colorido por município, troca de indicador e filtro por estado', async () => {
+  await abrir('/risco-territorial')
+  await p.waitForSelector('[data-teste=risco-mapa] canvas')
+  await p.waitForFunction(() => !document.body.innerText.includes('Carregando contornos'), null, { timeout: 15000 })
+  assert.equal(await numero('[data-teste=risco-n-dado]'), 5572, 'desastres: todos os municípios têm valor (zero ou mais)')
+  const legenda1 = await texto('[data-teste=risco-legenda]')
+  await p.selectOption('[data-teste=risco-indicador]', 'ivs2010')
+  const nIvs = await numero('[data-teste=risco-n-dado]')
+  assert.ok(nIvs > 5000 && nIvs < 5572, `IVS 2010 tem dado para a maioria dos municípios (${nIvs})`)
+  const legenda2 = await texto('[data-teste=risco-legenda]')
+  assert.notEqual(legenda1, legenda2); assert.match(legenda2, /IVS 2010/); assert.match(legenda2, /Sem dado/)
+  await p.selectOption('[data-teste=risco-uf]', 'GO')
+  assert.ok((await numero('[data-teste=risco-n-dado]')) < 300, 'Goiás tem 246 municípios')
+  await p.locator('[data-teste=risco-coops]').check()
+  assert.match(await texto('[data-teste=risco-legenda]'), /Cooperativas agropecuárias/)
+})
+
+test('RF-15 Risco Territorial: busca um município e mostra a ficha com todas as camadas e as cooperativas', async () => {
+  await abrir('/risco-territorial')
+  await p.fill('[data-teste=risco-busca]', 'Rio Verde')
+  await p.getByRole('option', { name: /^Rio Verde\s*GO$/ }).click()
+  await p.waitForSelector('[data-teste=risco-ficha]')
+  assert.match(await texto('[data-teste=risco-ficha-nome]'), /Rio Verde – GO/)
+  const ficha = await texto('[data-teste=risco-ficha]')
+  for (const t of ['Desastres desde 1991|Desastres nos últimos 10 anos', 'IVS 2010', 'ISH 2017', 'Cooperativas agropecuárias', 'Estabelecimentos da agricultura familiar', 'habitantes']) assert.match(ficha, new RegExp(t), t)
+  await p.waitForSelector('[data-teste=risco-ficha-coops] li')
+  await p.getByRole('button', { name: 'Abrir ficha completa' }).click()
+  await p.waitForSelector('[role=dialog] [data-teste=risco-ficha]')
+  const completa = await texto('[role=dialog]')
+  for (const t of ['Segurança hídrica', 'Solo', 'População e urbanização', 'Rios, bacias e lagos']) assert.match(completa, new RegExp(t), t)
+  await p.keyboard.press('Escape')
+})
+
+test('RF-16 Prioridades de apoio: pesos mudam a ordem, filtros mudam a lista e o CSV é gerado', async () => {
+  await abrir('/risco-territorial')
+  await p.getByRole('tab', { name: 'Prioridades de apoio' }).click()
+  await p.waitForSelector('[data-teste=prio-tabela] tbody tr')
+  const n0 = await numero('[data-teste=prio-n]'), primeiro0 = await texto('[data-teste=prio-tabela] tbody tr')
+  assert.ok(n0 > 1000, `municípios avaliados: ${n0}`)
+  assert.match(primeiro0, /^1\s/)
+  await p.locator('[data-teste=prio-min]').fill('2000')
+  const n1 = await numero('[data-teste=prio-n]'); assert.ok(n1 < n0, 'mínimo maior reduz a lista')
+  await p.locator('[data-teste=prio-min]').fill('300')
+  await p.locator('[data-teste=prio-sem]').check()
+  for (const tr of await p.locator('[data-teste=prio-tabela] tbody tr').all()) assert.match(await tr.locator('td').nth(6).innerText(), /^0$/, 'só municípios sem cooperativa agropecuária')
+  await p.locator('[data-teste=prio-sem]').uncheck()
+  await p.selectOption('[data-teste=prio-uf]', 'RS')
+  for (const tr of (await p.locator('[data-teste=prio-tabela] tbody tr').all()).slice(0, 5)) assert.match(await tr.locator('td').nth(1).innerText(), /– RS$/)
+  const [d] = await Promise.all([p.waitForEvent('download'), p.locator('[data-teste=prio-csv]').click()])
+  assert.equal(d.suggestedFilename(), 'prioridades_de_apoio.csv')
+  const linhas = require('node:fs').readFileSync(await d.path(), 'utf8').trim().split('\n'); assert.ok(linhas.length > 50 && linhas[0].includes('nota_prioridade'))
+  await p.locator('[data-teste=peso-des]').fill('0'); await p.locator('[data-teste=peso-ivs]').fill('0'); await p.locator('[data-teste=peso-hid]').fill('0'); await p.locator('[data-teste=peso-coop]').fill('5')
+  assert.match(await texto('[data-teste=prio-tabela] tbody tr'), /\s0\s/, 'só falta de cooperativas: no topo vêm municípios sem coop. agropecuária')
+  await p.locator('[data-teste=prio-tabela] tbody tr').first().click(); await p.waitForSelector('[role=dialog] [data-teste=risco-ficha]')
+  await p.keyboard.press('Escape')
+})
+
+test('RF-17 Histórico de desastres e Fontes: números por estado e ficha de cada fonte', async () => {
+  await abrir('/risco-territorial')
+  await p.getByRole('tab', { name: 'Histórico de desastres' }).click(); await p.waitForSelector('.grafico svg')
+  const brasil = await texto('.conteudo .g4 .cartao')
+  assert.match(brasil, /76\.190/, 'total nacional de registros do Atlas')
+  await p.selectOption('[data-teste=hist-uf]', 'GO'); await p.waitForFunction(() => /(^|\D)572(\D|$)/.test(document.querySelector('.conteudo .g4 .cartao').innerText))
+  assert.match(await texto('.conteudo .g4 .cartao'), /572/, 'Goiás: 572 registros')
+  await p.getByRole('tab', { name: 'Fontes e método' }).click()
+  assert.equal(await p.locator('[data-teste=risco-fontes] tbody tr').count(), 7)
+  const t = await texto('[data-teste=risco-fontes]'); for (const f of ['Atlas Digital', 'Índice de Vulnerabilidade Social', 'Índice de Segurança Hídrica', 'SoilGrids', 'Global Human Settlement', 'HydroSHEDS', 'CNPJ']) assert.match(t, new RegExp(f), f)
+})
+
 test('RNF-01 Acessibilidade: VLibras, idioma, atalho, tamanho de texto, contraste e tema', async () => {
   await abrir('/')
   assert.equal(await p.getAttribute('html', 'lang'), 'pt-BR')
@@ -258,4 +327,21 @@ test('RD-01 Integridade dos dados publicados', async () => {
   assert.equal(go.length, resumo.por_uf.GO)
   assert.ok(go.every((c) => /^\d{14}$/.test(c[0]) && c[6].startsWith('52')), 'CNPJ com 14 dígitos e município de Goiás')
   assert.equal(mun.reduce((s, m) => s + m[7], 0), resumo.estab_familiares_brasil)
+})
+
+test('RD-02 Integridade dos dados de risco territorial', async () => {
+  const j = async (n) => (await p.request.get(`${BASE}/dados/${n}`)).json()
+  const r = await j('risco.json'), mun = await j('municipios.json'), geo = await j('risco_municipios.json')
+  assert.equal(r.cod.length, 5572); assert.equal(new Set(r.cod).size, 5572)
+  assert.equal(geo.features.length, 5572, 'um contorno por município')
+  const codsMun = new Set(mun.map((m) => m[0])); assert.ok(r.cod.every((c) => codsMun.has(c)), 'mesmos códigos IBGE da base de cooperativas')
+  for (const [nome, v] of Object.entries(r.col)) assert.equal(v.length, 5572, `coluna ${nome} alinhada`)
+  const soma = (c) => r.col[c].reduce((s, x) => s + (x || 0), 0)
+  assert.equal(soma('des_total'), 76190, 'soma dos desastres = registros do Atlas')
+  assert.equal(['seca', 'cheias', 'tempestades', 'incendio', 'massa', 'outros'].reduce((s, g) => s + soma('des_' + g), 0), 76190)
+  const faixa = (c, lo, hi) => r.col[c].every((x) => x == null || (x >= lo && x <= hi))
+  assert.ok(faixa('ivs2010', 0, 1) && faixa('ivs2000', 0, 1) && faixa('ivs_infra', 0, 1), 'IVS entre 0 e 1 (o −1 do portal foi tratado)')
+  assert.ok(faixa('ish2017_geral', 1, 5) && faixa('ish2035_geral', 1, 5), 'ISH entre 1 e 5')
+  assert.ok(faixa('ph', 3, 9) && faixa('argila_pct', 0, 100) && faixa('areia_pct', 0, 100) && faixa('pct_pop_rural', 0, 100), 'solo e população em faixas físicas')
+  const pop = soma('pop2020'); assert.ok(pop > 195e6 && pop < 225e6, `população 2020 somada: ${pop}`)
 })

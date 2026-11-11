@@ -15,6 +15,7 @@ export const MENU = [
     { rota: '/', nome: 'Início', icone: 'inicio', perfis: T, resumo: 'Visão geral da plataforma e dos dados.' },
     { rota: '/geoportal', nome: 'Geoportal', icone: 'mapa', perfis: T, resumo: 'Mapa nacional das cooperativas, com busca e fichas.' },
     { rota: '/sala-de-situacao', nome: 'Sala de Situação', icone: 'radar', perfis: ['gestor', 'ater', 'centro', 'cooperativa'], resumo: 'Alertas de clima, vegetação e solo por território.' },
+    { rota: '/risco-territorial', nome: 'Risco Territorial', icone: 'alerta', perfis: T, resumo: 'Desastres, vulnerabilidade, água, solo e população cruzados com as cooperativas.' },
     { rota: '/politicas-publicas', nome: 'Políticas Públicas', icone: 'politicas', perfis: ['publico', 'gestor', 'pesquisador', 'centro', 'nucleo'], resumo: 'Presença cooperativa, vazios de atendimento e ICPP.' },
   ] },
   { grupo: 'Serviços', itens: [

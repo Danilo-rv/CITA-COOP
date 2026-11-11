@@ -244,5 +244,6 @@ A plataforma foi construída em `app/` e validada em laboratório. O que está p
 | Calculadora do ICPP | Funcional; numeradores digitados |
 | Sala de Situação | Motor de alertas pronto; dados ilustrativos |
 | Formação | Catálogo das trilhas |
+| **Risco Territorial** (versão 0.5) | Pronto, com dados reais: desastres (Atlas), vulnerabilidade (IVS), segurança hídrica (ISH/ANA), solo (SoilGrids), população (GHSL), rios/bacias/lagos (HydroSHEDS) e cooperativas. Inclui mapa por município, fila de prioridades de apoio (pesos ajustáveis), histórico de desastres e ficha de cada município. |
 | Acessibilidade (VLibras, contraste, teclado, texto) | Pronto e testado |
 | Login, banco central, WhatsApp, IA, satélite, CAF | Próximas etapas (TRL 5 em diante) |
